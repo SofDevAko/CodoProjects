@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Allows for multi device responsiveness-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- The line above tells Django to be ready to listen for static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'imdb/css/imdbcss.css' %}" media="screen" title="no title" charset="utf-8">
+    <title>Search Results</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="background-image:url('https://image.tmdb.org/t/p/original/{{background.poster_path}}')">
+
+    <div id="wrapper" class="container">
+        <div id="main-content" class="">
+
+            <!--Row that has nav-->
+            <div class="col-12 navbar row">
+                <!--nav which is also a column-->
+                <a class="col-1 navbar-brand" href="/">
+                    <img src="{% static "imdb/images/imdblogo.jpg" %}" alt="Home" />
+                </a>
+
+
+                <form class="col-2" action='/watchlist' method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-light">Watchlist</button>
+                </form>
+
+                <form action="/search/searchpage" method="POST" class="ajax_form col-6 form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                    <!-- <input type="search" name="search" id="ajax_search"> -->
+
+                    <input id="ajax_search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
+                        value="" autocomplete="off">
+
+
+
+                    <select name="search_option" id="searchselect">
+                        <option value="multi">All</option>
+                        <option value="movie">Movies</option>
+                        <option value="person">People</option>
+                        <option value="keyword">Keywords</option>
+                    </select>
+
+                    <button class="search" type="submit" value="movies">
+                        <img class="search" src="{% static "imdb/images/search.jpg" %}" alt="Home" />
+                    </button>
+                </form>
+                <div class = "movies-horz" id='auto-searches'>
+
+                </div>
+                <div id='searches'>
+
+                </div>
+
+                <form class="col-1" action='/{{reg}}' method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-light">{{label}}</button>
+                </form>
+            </div>
+
+            <hr>
+
+            <!-- API Entries -->
+            <div id="search_results">
+
+            </div>
+            <ul class = "">
+            {% for movie in curmovies.results %}
+           
+
+                {% if movie.original_title and movie.poster_path %}
+
+                <li class="horz movieimgs searchres">
+                <a href="/{{movie.id}}"><img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}"></a>
+                <br>
+                {{movie.original_title}}<br>
+                <a href="/{{movie.id}}/add_list">Add to Watchlist</a>
+                </li>
+                {% endif %}
+
+            
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+
+    $('.ajax_form').submit(function (e) {
+        //   e.preventDefault()
+    })
+    $('#ajax_search').keyup(function () {
+        var search_option = $('#searchselect').val()
+        $.ajax({
+            url: '/search/' + search_option + '/',
+            method: 'post',
+            data: $(this).parent().serialize(),
+            success: function (serverResponse) {
+                $('#auto-searches').html(serverResponse)
+            }
+        })
+    });
+</script>
+</html>
