@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../wwwroot/css/style.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+    <title>Spookify Register Page</title>
+  </head>
+  <body>
+      <div id="header" class="nav justify-content-center">
+         <img src="../../wwwroot/img/spookify-inv.png" alt="spookify logo" class="navbar-brand d-inline-block align-top" width="300" height="150">
+      </div>
+        
+      <div id="content" class="text-center">
+            <a href="#" class="btn-facebook" id="select-button-signup-fb">
+                Sign Up with Facebook
+            </a><hr>
+                or<br>
+                <b>Sign Up with your E-mail Address</b><br>
+                <form action="" method="post">
+                    <input type="email" name="email" id="reg-email" placeholder="Email"><br>
+                    <input type="email" name="confirmemail" id="reg-confemail" placeholder="Confirm Email"><br>
+                    <input type="password" name="password" id="reg-password" placeholder="Password"><br>
+                    <input type="text" name="username" id="reg-username" placeholder="What should we call you?"><br>
+                    <input type="date" name="birthday" id="reg-birthday"><br>
+                    <li id="li-gender" class="gender">
+                        <label class="sr-only">Gender:</label>
+                        <label for="register-male" class="radio control-inline">
+                        <input type="radio" id="register-male" name="gender" class="gender" value="male">
+                            Male
+                        </label>
+                        <label for="register-female" class="radio control-inline">
+                        <input type="radio" id="register-female" name="gender" class="gender" value="female">
+                            Female
+                        </label>
+                                <label for="register-neutral" class="radio control-inline">
+                            <input type="radio" id="register-neutral" name="gender" value="neutral">
+                            Other
+                        </label>
+                        
+                    </li>
+                <div class="g-recaptcha justify-content center" data-sitekey="6LeyNk8UAAAAAJgfM8HaGOOf92HidMtvLZ5vAus8"></div>
+                
+                </form>
+            <a class="js-signup-email-submit" id="register-button-email-submit" href="#"> Sign Up </a>
+            <b><p class="haveaccount">Already have an account? <a href="login" class="login">Log In</a></b></p>  
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

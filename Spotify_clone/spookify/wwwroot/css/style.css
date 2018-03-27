@@ -1,0 +1,145 @@
+
+  #header a{
+    color: lightslategray;
+    font-weight: bold;
+  }
+  .nav-link {
+    padding: 10px;
+    display: block;
+  }
+  .nav{
+    border-bottom: 1px solid gray;
+    margin-bottom: 2%;
+  }
+  #header a:hover{
+      color: lightgreen;
+  }
+  .navbar-transparent{
+      background-color: rgba(0, 0, 0, 0.746);
+  }
+  .divider{
+      color: whitesmoke;
+  }
+  input{
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+  }
+  .gender{
+    list-style-type: none;
+  }
+  .gender label{
+    display: inline;
+  }
+  .gender input{
+    width: 10px;
+    display: inline-block;
+  }
+  .btn-facebook{
+    background-color: mediumblue;
+    color: whitesmoke;
+    padding: 1% 10%; 
+    border-radius: 45px;
+  }
+  .btn-facebook:hover{
+    text-decoration: none;
+    background-color: dodgerblue;
+  }
+  .js-signup-email-submit{
+    background-color: green;
+    border-radius: 45px;
+    padding: 1% 10%; 
+    color: whitesmoke;
+  }
+  .js-signup-email-submit:hover{
+    text-decoration: none;
+    background-color: rgb(12, 161, 12);
+  }
+  .login{
+    color: green;
+  }
+  .login:hover{
+    color: rgb(12, 161, 12);
+    text-decoration: none;
+  }
+  form{
+    margin: 2%;
+  }
+  .haveaccount{
+    margin: 2%;
+  }
+  #wrapper{
+    background-color: rgb(4, 10, 10);
+    height: 1000px;
+    width: 1500px;
+    z-index: -1;
+  }
+  #webplayernav{
+    display: inline-block;
+    top: 0px;
+    height: 100%;
+    width: 13%;
+    z-index: 2;
+  }
+  #webplayernav img{
+    border-bottom: 1px solid lightgray;
+  }
+  .recently{
+    margin: 10px;
+    font-weight: bold;
+    color: whitesmoke;
+    border-bottom: 1px solid grey;
+  }
+  .webplayer{
+    background-color: rgb(8, 8, 8);
+    height: 10%;
+    width: 100%;
+
+  }
+  #playercontent{
+  vertical-align: text-top;
+  display: inline-block;
+  background-color: aquamarine;
+  height: 700px;
+  width: 1100px;
+  z-index: 1;
+}
+
+.aligned { 
+	text-align: center; 
+	padding-bottom:28%; 
+}
+.aligned_input { 
+	text-align: center; 
+	padding-bottom:-10%; 
+}
+.aligned_text { 
+	text-align: center; 
+	font-size: 88%;
+}
+.no:hover {
+	background:none;
+} .no:active {
+	background: none;
+}
+#seconds {
+	font-size:10px;
+}
+.btn-custom {
+	background-color: black;
+  color:white;
+  height: 40px;
+  width: 50px;
+	transition-property: background, opacity;
+	transition-duration: 0.5s;
+} .btn-custom:hover, .btn-custom:active, .btn-custom:focus {
+	cursor: pointer;
+	opacity:0.5;
+	color:rgb(184, 184, 184);
+
+} 
+.btn-group{
+  height: 5%;
+  width: 15%;
+  margin: 2% 40%;
+}
