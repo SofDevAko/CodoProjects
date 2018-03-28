@@ -1,0 +1,28 @@
+<h2>Top Artist Data</h2>
+<p>Artist Name: @ViewBag.firstArtistName</p>
+<p># of Listeners: @ViewBag.listeners</p>
+<p>Playcount: @ViewBag.Playcount</p>
+<p>MBID: @ViewBag.mbid</p>
+<p>URL:  <a href="@ViewBag.URL">Band Page</a></p>
+<!-- <p>@ViewBag.allTopArtistData</p> -->
+
+<hr style="border: 1px solid grey">
+<br>
+<h2>Artist Search</h2>
+<div>
+    <form action="Artist" method="GET">
+        Artist Search: <input type="text", placeholder="Enter Artist Name" labelfor="artistsearch" name="artistsearch">
+        <button name="searchartist" type="submit">Search for Artist</button>
+    </form>
+</div>
+
+<hr style="border: 1px solid grey">
+<br>
+<h2>Album Search</h2>
+<div>
+    <form action="Album" method="GET">
+        Album Search: <input type="text", placeholder="Enter Album Name" labelfor="albumsearch" name="albumsearch">
+        For Artist: <input type="text", placeholder="Enter Artist Name" labelfor="albumartistsearch" name="albumartistsearch">
+        <button name="searchalbum" type="submit">Search for Album</button>
+    </form>
+</div>
