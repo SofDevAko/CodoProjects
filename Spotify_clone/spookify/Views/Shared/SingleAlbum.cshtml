@@ -1,0 +1,59 @@
+<p>Album Name: @ViewBag.AlbumName</p>
+<p>Album Info: @ViewBag.AlbumInfo</p>
+
+<p>@ViewBag.TrackName</p>
+
+<ul>
+@foreach(var TrackName in @ViewBag.TrackNames)
+{
+    <li>@TrackName</li>
+}
+</ul>
+
+<ul>
+@foreach(var TrackURL in @ViewBag.TrackURLs)
+{
+    <li>@TrackURL</li>
+}
+</ul>
+
+
+
+<ul>
+@foreach(var TrackDuration in @ViewBag.TrackDurations)
+{
+    <li>@TrackDuration</li>
+}
+</ul>
+
+<ul>
+@foreach(var TrackRank in @ViewBag.TrackRanks)
+{
+    <li>@TrackRank</li>
+}
+</ul>
+
+<ul>
+@foreach (var URL in @ViewBag.ImageURLs)
+{
+    <li><img src="@URL" alt="albumimage"</li>
+}
+</ul>
+
+<ul>
+@foreach(var Size in @ViewBag.ImageSize)
+{
+    <li>@Size</li>
+}
+</ul>
+
+
+
+
+<p>Tag URLs</p>
+<ul>
+@foreach (var tagURL in @ViewBag.TagURLs)
+{
+    <li>@tagURL</li>
+}
+</ul>

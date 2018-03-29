@@ -15,5 +15,11 @@ namespace spookify.Models
         public int? ArtistPlaycount { get; set; }
         public int ArtistMBID {get; set; }
         public string ArtistURL {get; set; }
+        public ImageSet MainImage { get; set; }
+        public Stats ArtistStats {get; set; }
+        
+        public IEnumerable<Tag> Tags { get; set; }
+
+        public IEnumerable<Album> Albums { get; set; }
     }
 }

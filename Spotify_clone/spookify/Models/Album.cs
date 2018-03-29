@@ -9,12 +9,26 @@ namespace spookify.Models
 
         [JsonProperty("mbid")]
         public int AlbumMBID { get; set; }
+
         public string AlbumName { get; set; }
+
         public string AlbumArtist { get; set; }
+
         public string AlbumURL { get; set; }
+
         public DateTime AlbumReleaseDate { get; set; }
+
         public int AlbumListeners { get; set; }
+
         public int AlbumPlaycount { get; set; }
+
         public List<Track> AlbumTracks {get; set; }
+
+        public List<string> Tags { get; set; }
+
+        public Album()
+        {
+            Tags = new List<string>(); 
+        }
     }
 }

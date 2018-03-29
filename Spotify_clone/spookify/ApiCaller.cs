@@ -6,7 +6,7 @@ using Newtonsoft.Json;
  
 namespace spookify
 {
-    public class WebRequest
+    public class ArtistRequest
     {
         // The second parameter is a function that returns a Dictionary of string keys to object values.
         // If an API returned an array as its top level collection the parameter type would be "Action>"

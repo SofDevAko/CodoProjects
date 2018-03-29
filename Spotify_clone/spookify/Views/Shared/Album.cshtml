@@ -1,1 +1,8 @@
 <p>Album Name: @ViewBag.AlbumName</p>
+@foreach(var Object in @ViewBag.AlbumObject)
+{
+<div>
+    @Object.Name; 
+    @Object.Value;
+</div>
+}

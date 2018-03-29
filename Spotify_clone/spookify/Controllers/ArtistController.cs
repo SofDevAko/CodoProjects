@@ -55,83 +55,103 @@ namespace spookify.Controllers
         return View(); 
     }
 
-        [HttpGet]
-        [Route("Artist")]
-        public IActionResult Artist(string artistsearch)
-        {
-            ViewBag.artistsearch = artistsearch; 
-            string First = "https://ws.audioscrobbler.com/2.0/?";
-            string Second = "method=artist.getinfo&";
-            string Third = "artist=";
-            string Band = artistsearch; 
-            string Fourth = "&api_key=278be908abb6863ead7c33ceb7899607";
-            string Fifth = "&format=json";
-            string AllString = First + Second + Third + Band + Fourth + Fifth;
-            System.Console.WriteLine(AllString); 
-            var client = new RestClient(AllString);
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Postman-Token", "5352f3c0-48ca-4414-946f-5ac3f00ea9fa");
-            request.AddHeader("Cache-Control", "no-cache");
-            IRestResponse response = client.Execute(request);
+    [HttpGet]
+    [Route("ArtistGetInfo")]
+    public IActionResult ArtistGetInfo(string ArtistSearch)
+    {
+        ViewBag.ArtistSearch = ArtistSearch; 
+        string First = "https://ws.audioscrobbler.com/2.0/?";
+        string Second = "method=artist.getinfo&";
+        string Third = "artist=";
+        string Band = ArtistSearch; 
+        string Fourth = "&api_key=278be908abb6863ead7c33ceb7899607";
+        string Fifth = "&format=json";
+        string AllString = First + Second + Third + Band + Fourth + Fifth;
+        System.Console.WriteLine(AllString); 
+        var client = new RestClient(AllString);
+        
+        var request = new RestRequest(Method.GET);
+        request.AddHeader("Postman-Token", "5352f3c0-48ca-4414-946f-5ac3f00ea9fa");
+        request.AddHeader("Cache-Control", "no-cache");
+        IRestResponse response = client.Execute(request);
 
-            var ResponseObject = response.Content;
-            JObject BandNameObject= JObject.Parse(ResponseObject);
+        var ResponseObject = response.Content;
+        Console.WriteLine(ResponseObject);
+        JObject BandNameObject= JObject.Parse(ResponseObject);
 
-            string ArtistName = (string)BandNameObject["artist"]["name"];
-            ViewBag.ArtistName = ArtistName;
+        string ArtistName = (string)BandNameObject["artist"]["name"];
+        ViewBag.ArtistName = ArtistName;
 
-            string ArtistMBID = (string)BandNameObject["artist"]["mbid"];
-            ViewBag.ArtistMBID = ArtistMBID;
+        string ArtistMBID = (string)BandNameObject["artist"]["mbid"];
+        ViewBag.ArtistMBID = ArtistMBID;
 
-            string ArtistListeners = (string)BandNameObject["artist"]["stats"]["listeners"];
-            ViewBag.ArtistListeners = ArtistListeners;
+        string ArtistListeners = (string)BandNameObject["artist"]["stats"]["listeners"];
+        ViewBag.ArtistListeners = ArtistListeners;
 
-            string ArtistPlaycount = (string)BandNameObject["artist"]["stats"]["playcount"];
-            ViewBag.ArtistPlaycount = ArtistPlaycount;
+        string ArtistPlaycount = (string)BandNameObject["artist"]["stats"]["playcount"];
+        ViewBag.ArtistPlaycount = ArtistPlaycount;
 
-            string ArtistURL = (string)BandNameObject["artist"]["url"];
-            ViewBag.ArtistURL = ArtistURL;
+        string ArtistURL = (string)BandNameObject["artist"]["url"];
+        ViewBag.ArtistURL = ArtistURL;
 
-            string ArtistTags = (string)BandNameObject["artist"]["tags"]["tag"][0]["name"]; 
-            ViewBag.ArtistTags = ArtistTags; 
+        string ArtistTags = (string)BandNameObject["artist"]["tags"]["tag"][0]["name"]; 
+        ViewBag.ArtistTags = ArtistTags; 
 
-            string ArtistBIO = (string)BandNameObject["artist"]["bio"]["summary"];
-            ViewBag.ArtistBIO = ArtistBIO; 
+        string ArtistBIO = (string)BandNameObject["artist"]["bio"]["summary"];
+        ViewBag.ArtistBIO = ArtistBIO; 
 
-            string ArtistBioContent = (string)BandNameObject["artist"]["bio"]["content"];
-            ViewBag.ArtistBioContent = ArtistBioContent; 
+        string ArtistBioContent = (string)BandNameObject["artist"]["bio"]["content"];
+        ViewBag.ArtistBioContent = ArtistBioContent; 
 
-            return View("Artist");
+        return View("Artist");
         }
 
-        [HttpGet]
-        [Route("Album")]
-        public IActionResult Album(string albumsearch, string albumartistsearch)
+
+        public string TopAlbumConcatenate(string ArtistSearchName)
         {
-            ViewBag.albumsearch = albumsearch; 
-            ViewBag.albumartistsearch = albumartistsearch;
-            string First = "https://ws.audioscrobbler.com/2.0/?";
-            string Second = "method=album.getinfo";
-            string Third = "&api_key=278be908abb6863ead7c33ceb7899607";
-            string Fourth = "&artist=";
-            string AlbumArtist = albumartistsearch; 
-            string Fifth = "&album=";
-            string Album = albumsearch; 
-            string Sixth = "&format=json";
-            string AllString = First + Second + Third + Fourth + AlbumArtist + Fifth + Album +  Sixth;
-            System.Console.WriteLine(AllString);
+            ViewBag.ArtistSearch = ArtistSearchName; 
+            string First = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=";
+            string Band = ArtistSearchName; 
+            string Second = "&api_key=278be908abb6863ead7c33ceb7899607&format=json";
+            string AllString = First + Band + Second;
+            return AllString; 
+        }
+        
+        
+        
+        
+        [HttpGet]
+        [Route("ArtistTopAlbum")]
+
+        public IActionResult ArtistTopAlbum(string ArtistSearchName)
+        {
+            string  AllString = TopAlbumConcatenate(ArtistSearchName); 
             var client = new RestClient(AllString);
+
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Postman-Token", "1310a566-51fe-4f52-89c6-bbd00c851f6b");
+            request.AddHeader("Postman-Token", "9ac3147e-7cb5-4905-b876-9dea9266bc29");
             request.AddHeader("Cache-Control", "no-cache");
             IRestResponse response = client.Execute(request);
+
             var ResponseObject = response.Content;
             JObject AlbumObject= JObject.Parse(ResponseObject);
-            
-            string AlbumName = (string)AlbumObject["album"]["name"];
-            ViewBag.AlbumName = AlbumName;
-            Console.WriteLine(AlbumName); 
-            Console.WriteLine(AlbumObject); 
+
+
+            for (var i = 0; i < AlbumObject.Count; i++)
+            {
+                string AlbumName = (string)AlbumObject["topalbums"]["album"][i]["name"];
+                Console.WriteLine(AlbumName);
+
+                string AlbumPlaycount = (string)AlbumObject["topalbums"]["album"][i]["playcount"];
+                Console.WriteLine(AlbumPlaycount);
+
+                string AlbumMBID = (string)AlbumObject["topalbums"]["album"][i]["MBID"];
+                Console.WriteLine(AlbumMBID);
+            }
+
+            string FirstAlbumName = (string)AlbumObject["topalbums"]["album"][0]["name"];
+            ViewBag.AlbumName = FirstAlbumName;
+            ViewBag.AlbumObject = AlbumObject; 
             return View("Album");
         }
     }
