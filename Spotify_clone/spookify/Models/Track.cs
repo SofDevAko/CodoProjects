@@ -5,6 +5,7 @@ namespace spookify.Models
     public class Track : BaseEntity
     {
         public int TrackId { get; set; }
+        public int AlbumId { get; set; }
         public int TrackRank { get; set; }
         public string TrackName { get; set; }
         public string TrackURL { get; set; }

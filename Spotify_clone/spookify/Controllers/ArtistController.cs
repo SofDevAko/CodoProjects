@@ -24,8 +24,8 @@ namespace spookify.Controllers
     
     // GET: /Home/
     [HttpGet]
-    [Route("")]
-    public IActionResult Index()
+    [Route("workingindex")]
+    public IActionResult WorkingIndex()
     {
         var client = new RestClient("https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=278be908abb6863ead7c33ceb7899607&format=json&page=1");
         var request = new RestRequest(Method.GET);

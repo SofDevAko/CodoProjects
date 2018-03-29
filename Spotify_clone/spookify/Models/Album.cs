@@ -13,6 +13,7 @@ namespace spookify.Models
         public string AlbumName { get; set; }
 
         public string AlbumArtist { get; set; }
+        public int ArtistId { get; set; }
 
         public string AlbumURL { get; set; }
 
