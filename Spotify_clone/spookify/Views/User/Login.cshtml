@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../wwwroot/css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     
     <title>Spookify Login Page</title>
   </head>
   <body>
+      @model spookify.Models.LoginUser
       <div id="header" class="nav justify-content-center">
-         <img src="../../wwwroot/img/spookify-inv.png" alt="spookify logo" class="navbar-brand d-inline-block align-top" width="300" height="150">
+         <img src="~/img/spookify-inv.png" alt="spookify logo" class="navbar-brand d-inline-block align-top" width="300" height="150">
       </div>
         
       <div id="content" class="text-center">
@@ -21,13 +22,13 @@
             </a><hr>
                 <br>
                 <b>or</b><br>
-                <form action="" method="post">
-                    <input type="email" name="email" id="reg-email" placeholder="Email address or username"><br>
-                    <input type="password" name="password" id="reg-password" placeholder="Password"><br>
+                <form action="/login/user" method="post">
+                    <input type="email" name="Email" id="reg-email" placeholder="Email address or Username"><br>
+                    <input type="password" name="Password" id="reg-password" placeholder="Password"><br>
+                    <button type="submit" class="js-signup-email-submit" id="login-button-email-submit">Log In</button><br>
                 </form>
-            <a class="js-signup-email-submit" id="login-button-email-submit" href="#"> Log In </a><br>
-            
-            <b><p class="haveaccount">Don't have an account? <a href="register" class="login">Register</a></p></b>
+            <div asp-validation-summary="All"></div>
+            <b><p class="haveaccount">Don't have an account? <a href="/register" class="login">Register</a></p></b>
             <b><a class="login" href="forgot">Forgot your username or password?</a></b><br>
         </div>
 

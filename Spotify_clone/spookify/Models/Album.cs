@@ -11,6 +11,8 @@ namespace spookify.Models
         public int AlbumMBID { get; set; }
         public string AlbumName { get; set; }
         public string AlbumArtist { get; set; }
+        public int ArtistId { get; set; }
+
         public string AlbumURL { get; set; }
         public DateTime AlbumReleaseDate { get; set; }
         public int AlbumListeners { get; set; }
