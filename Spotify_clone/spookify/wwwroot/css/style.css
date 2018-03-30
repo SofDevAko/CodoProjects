@@ -69,16 +69,16 @@
     margin: 2%;
   }
   #wrapper{
-    background-color: rgb(4, 10, 10);
+    background-color: rgb(59, 63, 63);
     height: 1000px;
     width: 1500px;
     z-index: -1;
   }
   #webplayernav{
-    display: inline-block;
+    display: block;
     top: 0px;
     height: 100%;
-    width: 13%;
+    width: 12%;
     z-index: 2;
   }
   #webplayernav img{
@@ -96,13 +96,17 @@
     width: 100%;
 
   }
-  #playercontent{
-  vertical-align: text-top;
+  #v-pills-playercontent{
+  position: absolute;
+  top: 10%;
+  left: 20%;
   display: inline-block;
-  background-color: aquamarine;
+  background-color: rgb(59, 63, 63);
   height: 700px;
   width: 1100px;
   z-index: 1;
+  overflow: auto;
+  color: whitesmoke;
 }
 
 .aligned { 
@@ -158,4 +162,12 @@
 .albumtable {
   width: 80%;
   border-top-style: 1px solid grey; 
+}
+#ajax_search{
+  color: whitesmoke;
+ 
+}
+#search{
+  padding-bottom: 20px;
+  border-bottom: 1px solid ghostwhite;
 }

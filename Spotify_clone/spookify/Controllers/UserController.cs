@@ -94,7 +94,7 @@ namespace spookify.Controllers
                 _context.SaveChanges();
                 User user = _context.Users.SingleOrDefault(u => u.Email == reguser.Email);
                 HttpContext.Session.SetInt32("ActiveId", user.UserId);
-                return RedirectToAction("Webplayer");
+                return RedirectToAction("Webplayer", "Webplayer");
             }
             
             return View("Register");

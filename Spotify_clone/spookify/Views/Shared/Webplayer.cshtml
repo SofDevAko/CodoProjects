@@ -6,42 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <title>Spookify Webplayer</title>
   </head>
   <body>
     <div id="wrapper">
-      <div id="webplayernav" class="sidenav navbar-transparent">
-                <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
+      <div id="webplayernav" class="nav-fill navbar-transparent" role="tablist" aria-orientation="vertical">
+        <ul class="nav nav-pills">
+          <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
+          <li class="nav-item">
+          <a  class="nav-link" data-toggle="pill" href="#search">Search <i class="material-icons">search</i></a>
+          </li>
+          <hr>
+          <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#webhome">Home <i class="material-icons">home</i></a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#yourmusic">Your Music <i class="material-icons">music_note</i></a>
+          </li>
+          <hr>
+          <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
+          <div id="recently">
+          
+          </div>
+        </ul>
+        </div>
+        
+        <div id="v-pills-playercontent" class="tab-content">
+          <!-- Home Page -->
+          <div class="tab-pane active container" id="webhome">WELCOME HOME!</div>
+          <!-- Search Page -->
+          <div class="tab-pane container" id="search">
+            <h1>Search</h1>
+              <form action="/search/searchpage" method="POST" class="ajax_form col-6 form-inline my-2 my-lg-0">
 
-                <a class="nav-link" href="">Search <i class="material-icons">search</i></a>
-                <hr>
-                <a class="nav-link" href="">Home <i class="material-icons">home</i></a>
-                <a class="nav-link" href="">Your Music <i class="material-icons">music_note</i></a>
-
-
-                <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
-                <div id="recently">
-
-                </div>
-      </div>
-
-  <div id="playercontent" class="text-center">
-      <form action="ArtistGetInfo" method="GET">
-        Artist Search: <input type="text", placeholder="Enter Artist Name" labelfor="ArtistSearch" name="ArtistSearch">
-        <button name="ArtistSearch" type="submit">Search for Artist</button>
-    </form>
-    <div>
-      <p>Content here!</p>
-    </div>
-  </div>
-
-
-
-
+                    <input id="ajax_search" class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search Here!" aria-label="Search" name="search"
+                        value="" autocomplete="off">
+                        <button class="search" type="submit" value="movies">
+                        <i class="material-icons">search</i>
+                    </button>
+              </form>
+            </div>
+          <!-- Your Music Page -->
+        <div class="tab-pane container" id="yourmusic">YOUR MUSIC IS HERE!</div>
+        </div>
 
         <div class="navbar-fixed-bottom webplayer">
             <audio id="audio" preload="auto"></audio>
@@ -57,9 +70,24 @@
         </div>
 
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
   </body>
+  <script>
+    $('.ajax_form').submit(function (e) {
+        //   e.preventDefault()
+    })
+    $('#ajax_search').keyup(function () {
+        var search_option = $('#searchselect').val()
+        $.ajax({
+            url: '/search/' + search_option + '/',
+            method: 'post',
+            data: $(this).parent().serialize(),
+            success: function (serverResponse) {
+                $('#auto-searches').html(serverResponse)
+            }
+        })
+    });
+</script>
+  
 </html>
