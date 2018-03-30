@@ -49,7 +49,20 @@ namespace spookify.Controllers
         [Route("webplayer")]
         public IActionResult Webplayer()
         {
-            return View("Webplayer");
+            int? firstid = HttpContext.Session.GetInt32("ActiveId");
+            
+            if(firstid != null)
+            {
+                int id = (int)firstid;
+                User curuser = _context.Users.SingleOrDefault(u=>u.UserId == id);
+                ViewBag.User = curuser;
+                return View("Webplayer");
+            }
+            else
+            {
+                return View("Index");
+            }
+            
         }
     }
 }

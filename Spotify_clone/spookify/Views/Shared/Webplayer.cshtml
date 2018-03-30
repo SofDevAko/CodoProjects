@@ -16,6 +16,7 @@
   </head>
   <body>
     <div id="wrapper">
+        
       <div id="webplayernav" class="nav-fill navbar-transparent" role="tablist" aria-orientation="vertical">
         <ul class="nav nav-pills">
           <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
@@ -35,7 +36,18 @@
           
           </div>
         </ul>
-        </div>
+        
+      </div>
+      <a id="user" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        
+          <i class="material-icons">account_circle</i>
+          <h3>@ViewBag.User.Username</h3>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Account</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+      
         
         <div id="v-pills-playercontent" class="tab-content">
           <!-- Home Page -->
@@ -43,14 +55,17 @@
           <!-- Search Page -->
           <div class="tab-pane container" id="search">
             <h1>Search</h1>
-              <form action="/search/searchpage" method="POST" class="ajax_form col-6 form-inline my-2 my-lg-0">
+              <form action="SingleAlbumInfo" method="POST" class="ajax_form col-6 form-inline my-2 my-lg-0">
 
                     <input id="ajax_search" class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search Here!" aria-label="Search" name="search"
                         value="" autocomplete="off">
-                        <button class="search" type="submit" value="movies">
-                        <i class="material-icons">search</i>
-                    </button>
+                        <button id="searchbtn" class="search" type="submit">
+                          <i class="material-icons">search</i>
+                        </button>
               </form>
+              <div id="searchres">
+
+              </div>
             </div>
           <!-- Your Music Page -->
         <div class="tab-pane container" id="yourmusic">YOUR MUSIC IS HERE!</div>
@@ -74,17 +89,14 @@
     
   </body>
   <script>
-    $('.ajax_form').submit(function (e) {
-        //   e.preventDefault()
-    })
-    $('#ajax_search').keyup(function () {
-        var search_option = $('#searchselect').val()
-        $.ajax({
-            url: '/search/' + search_option + '/',
-            method: 'post',
-            data: $(this).parent().serialize(),
+    $('#searchbtn').click(function(e){
+       e.preventDefault()
+       $.ajax({
+            url: 'SingleAlbumInfo',
+            method: 'GET',
+            data: $('#ajax_search').val(),
             success: function (serverResponse) {
-                $('#auto-searches').html(serverResponse)
+                $('#searchres').html(serverResponse)
             }
         })
     });
