@@ -41,7 +41,7 @@ namespace spookify.Controllers
         ViewBag.firstArtistName = firstArtistName;              //sends Kendrick Lamar to the ViewBag
 
         string listeners = (string)parsedTopArtistData["artists"]["artist"][0]["listeners"];                //this gives you Kendrick Lamar's number of listeners
-        ViewBag.listeners = listeners;              //this sends Kendrick's # of listeners to the ViewBag
+        ViewBag.listeners = listeners;              //this sends Kendrick's # of listeners to the 
 
         string playcount = (string)parsedTopArtistData["artists"]["artist"][0]["playcount"];                //this gives you Kendrick Lamar's number of listeners
         ViewBag.playcount = playcount;
