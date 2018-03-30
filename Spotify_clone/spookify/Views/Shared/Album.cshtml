@@ -6,3 +6,69 @@
     @Object.Value;
 </div>
 }
+
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+    <title>Spookify Webplayer</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="webplayernav" class="sidenav navbar-transparent">
+                <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
+                
+                <a class="nav-link" href="">Search <i class="material-icons">search</i></a>
+                <hr>
+                <a class="nav-link" href="">Home <i class="material-icons">home</i></a>
+                <a class="nav-link" href="">Your Music <i class="material-icons">music_note</i></a>
+
+
+                <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
+                <div id="recently">
+
+                </div>
+
+        </div>
+
+      <div id="playercontent" class="text-center">
+           <div id="allartistalbums">
+               <h4>Albums</h4>
+               <hr>
+               @foreach(var Object in @ViewBag.AlbumObject)
+               {
+               <div id="albumheader">
+               @Object.Name
+               @Object.Value
+               }
+               
+               </div>
+        </div>
+
+        <div class="navbar-fixed-bottom webplayer">
+            <audio id="audio" preload="auto"></audio>
+            <div class="btn-group">
+                <button onclick="Play('music.mp3','audio');" class="btn btn-custom"><span title="Play" id="play" class="glyphicon icon-play aligned"><i class="material-icons">play_circle_outline</i></span></button>
+                <button onclick="Stop('music.mp3','audio');" class="btn btn-custom"><span title="Stop" id="stop" class="glyphicon glyphicon-stop aligned"><i class="material-icons">stop</i></span></button>
+                <button onclick="Restart('music.mp3','audio');" class="btn btn-custom"><span title="Restart" id="restart" class="glyphicon glyphicon-step-backward aligned"><i class="material-icons">skip_previous</i></span></button>
+                <button onclick="Backward5('music.mp3','audio');" class="btn btn-custom"><span title="-5 seconds" id="play" class="glyphicon glyphicon-fast-backward aligned"><i class="material-icons">fast_rewind</i></span></button>
+                <button onclick="Forward5('music.mp3','audio');" class="btn btn-custom"><span title="+5 seconds" id="play" class="glyphicon glyphicon-fast-forward aligned"><i class="material-icons">fast_forward</i></span></button>
+                <button onclick="VolumeUp('music.mp3','audio');" class="btn btn-custom"><span title="Volume Up" id="volumeup" class="glyphicon glyphicon-plus aligned"><i class="material-icons">volume_up</i></span></button>
+                <button onclick="VolumeDown('music.mp3','audio');" class="btn btn-custom"><span title="Volume Down" id="volumedown" class="glyphicon glyphicon-minus aligned"><i class="material-icons">volume_down</i></span></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,59 +1,37 @@
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+  </head>
+
+
+<body>
 <p>Album Name: @ViewBag.AlbumName</p>
-<p>Album Info: @ViewBag.AlbumInfo</p>
+<p>Artist: @ViewBag.AlbumArtist</p>
+<p>Listeners: @ViewBag.AlbumListeners</p>
+<p>Playcount: @ViewBag.AlbumPlaycount</p>
+<p><img src="@ViewBag.MedImage"></p>
 
-<p>@ViewBag.TrackName</p>
+<table class="albumtable">
+    <tbody>
+    <tr style="text-align: center">
+        <th>#</th>
+        <th>TITLE</th>
+        <th>Time</th>
+        <th>Playcount</th>
+    </tr>
+@{
+    @foreach(var track in ViewBag.album.AlbumTracks)
+    {
+    <tr>
+        <td>@track.TrackRank</td>
+        <td><a href="@track.TrackURL">@track.TrackName</a></td>
+        <td>@track.TrackDuration</td>
+        <td>@track.TrackPlaycount</td>
+    </tr>
+    }
+    }
+    </tbody>
+</table>
 
-<ul>
-@foreach(var TrackName in @ViewBag.TrackNames)
-{
-    <li>@TrackName</li>
-}
-</ul>
-
-<ul>
-@foreach(var TrackURL in @ViewBag.TrackURLs)
-{
-    <li>@TrackURL</li>
-}
-</ul>
-
-
-
-<ul>
-@foreach(var TrackDuration in @ViewBag.TrackDurations)
-{
-    <li>@TrackDuration</li>
-}
-</ul>
-
-<ul>
-@foreach(var TrackRank in @ViewBag.TrackRanks)
-{
-    <li>@TrackRank</li>
-}
-</ul>
-
-<ul>
-@foreach (var URL in @ViewBag.ImageURLs)
-{
-    <li><img src="@URL" alt="albumimage"</li>
-}
-</ul>
-
-<ul>
-@foreach(var Size in @ViewBag.ImageSize)
-{
-    <li>@Size</li>
-}
-</ul>
-
-
-
-
-<p>Tag URLs</p>
-<ul>
-@foreach (var tagURL in @ViewBag.TagURLs)
-{
-    <li>@tagURL</li>
-}
-</ul>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>

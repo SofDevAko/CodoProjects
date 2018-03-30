@@ -67,7 +67,7 @@ namespace spookify.Controllers
         string Fourth = "&api_key=278be908abb6863ead7c33ceb7899607";
         string Fifth = "&format=json";
         string AllString = First + Second + Third + Band + Fourth + Fifth;
-        System.Console.WriteLine(AllString); 
+        // System.Console.WriteLine(AllString); 
         var client = new RestClient(AllString);
         
         var request = new RestRequest(Method.GET);
@@ -76,7 +76,7 @@ namespace spookify.Controllers
         IRestResponse response = client.Execute(request);
 
         var ResponseObject = response.Content;
-        Console.WriteLine(ResponseObject);
+        // Console.WriteLine(ResponseObject);
         JObject BandNameObject= JObject.Parse(ResponseObject);
 
         string ArtistName = (string)BandNameObject["artist"]["name"];
@@ -102,6 +102,47 @@ namespace spookify.Controllers
 
         string ArtistBioContent = (string)BandNameObject["artist"]["bio"]["content"];
         ViewBag.ArtistBioContent = ArtistBioContent; 
+        
+        Artist newartist = new Artist()
+        {
+            ArtistName = ArtistName,
+            ArtistMBID = ArtistMBID,
+            ArtistURL = ArtistURL,
+            ArtistBio = ArtistBioContent, 
+            Tags = new List<Tag>(),
+            Albums = new List<Album>(),
+        };
+        
+        
+        
+        
+        
+        string  AllString2 = TopAlbumConcatenate(ArtistSearch); 
+            var client2= new RestClient(AllString2);
+            
+
+            var request2= new RestRequest(Method.GET);
+            request2.AddHeader("Postman-Token", "9ac3147e-7cb5-4905-b876-9dea9266bc29");
+            request2.AddHeader("Cache-Control", "no-cache");
+            IRestResponse response2 = client2.Execute(request2);
+
+            var ResponseObject2 = response2.Content;
+            JObject AlbumObject= JObject.Parse(ResponseObject2);
+             int countA = 0; 
+            foreach(var Item in (string)AlbumObject["topalbums"]["album"][countA]["name"])
+                {
+                    Album newalbum = new Album
+                    {
+                        AlbumName =  (string)AlbumObject["topalbums"]["album"][countA]["name"],
+                        AlbumPlaycount =(string)AlbumObject["topalbums"]["album"][countA]["playcount"],
+                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][2]["#text"],
+                        AlbumURL = (string)AlbumObject["topalbums"]["album"][countA]["url"],
+                    };
+                    newartist.Albums.Add(newalbum);
+                    countA ++; 
+                }
+        ViewBag.artist = newartist; 
+        // ArtistTopAlbum(ArtistSearch);
 
         return View("Artist");
         }
@@ -127,6 +168,7 @@ namespace spookify.Controllers
         {
             string  AllString = TopAlbumConcatenate(ArtistSearchName); 
             var client = new RestClient(AllString);
+            
 
             var request = new RestRequest(Method.GET);
             request.AddHeader("Postman-Token", "9ac3147e-7cb5-4905-b876-9dea9266bc29");
@@ -135,24 +177,48 @@ namespace spookify.Controllers
 
             var ResponseObject = response.Content;
             JObject AlbumObject= JObject.Parse(ResponseObject);
+            
+            // string AlbumImageX = (string)AlbumObject["topalbums"]["album"][0]["image"][0]["#text"];
+            // ViewBag.Image = AlbumImageX; 
 
-
-            for (var i = 0; i < AlbumObject.Count; i++)
+            var AlbumCounts = new List<string>(); 
+            var AlbumNames = new List<string>(); 
+            var AlbumPlaycounts = new List<string>(); 
+            var AlbumImages = new List<string>(); 
             {
-                string AlbumName = (string)AlbumObject["topalbums"]["album"][i]["name"];
-                Console.WriteLine(AlbumName);
-
-                string AlbumPlaycount = (string)AlbumObject["topalbums"]["album"][i]["playcount"];
-                Console.WriteLine(AlbumPlaycount);
-
-                string AlbumMBID = (string)AlbumObject["topalbums"]["album"][i]["MBID"];
-                Console.WriteLine(AlbumMBID);
+                int countA = 0; 
+                foreach(var Item in (string)AlbumObject["topalbums"]["album"][countA]["name"])
+                {
+                    Album newalbum = new Album
+                    {
+                        AlbumName =  (string)AlbumObject["topalbums"]["album"][countA]["name"],
+                        AlbumPlaycount =(string)AlbumObject["topalbums"]["album"][countA]["playcount"],
+                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][2]["#text"],
+                        AlbumURL = (string)AlbumObject["topalbums"]["album"][countA]["url"],
+                        AlbumListeners = (string)AlbumObject["topalbums"]["album"][countA]["listeners"],
+                    };
+                    // newartist.Albums.Add(newalbum);
+                    
+                    string AlbumName = (string)AlbumObject["topalbums"]["album"][countA]["name"];
+                    AlbumNames.Add((AlbumName).ToString());
+                    ViewBag.AlbumNames = AlbumNames; 
+                    countA ++; 
+                    
+                    string AlbumPlaycount = (string)AlbumObject["topalbums"]["album"][countA]["playcount"];
+                    AlbumPlaycounts.Add((AlbumPlaycount).ToString()); 
+                    ViewBag.AlbumPlaycounts = AlbumPlaycounts; 
+                    
+                    string AlbumMBID = (string)AlbumObject["topalbums"]["album"][countA]["MBID"];
+                    ViewBag.AlbumMBID = AlbumMBID; 
+                    
+                    // string AlbumImage = (string)AlbumObject["topalbums"]["album"][countB]["image"][2]["#text"];
+                    // ViewBag.AlbumImage = AlbumImage;  
+                    // countB ++; 
+                    // Console.WriteLine(AlbumImage); 
+                }
             }
-
-            string FirstAlbumName = (string)AlbumObject["topalbums"]["album"][0]["name"];
-            ViewBag.AlbumName = FirstAlbumName;
             ViewBag.AlbumObject = AlbumObject; 
-            return View("Album");
+            return View("Artist");
         }
     }
 }

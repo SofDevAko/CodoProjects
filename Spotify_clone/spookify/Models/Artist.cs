@@ -13,13 +13,19 @@ namespace spookify.Models
         public string ArtistBio { get; set; }
         public int ArtistListeners { get; set; }
         public int? ArtistPlaycount { get; set; }
-        public int ArtistMBID {get; set; }
+        public string ArtistMBID {get; set; }
         public string ArtistURL {get; set; }
-        public ImageSet MainImage { get; set; }
-        public Stats ArtistStats {get; set; }
+        // public ImageSet MainImage { get; set; }
+        // public Stats ArtistStats {get; set; }
         
-        public IEnumerable<Tag> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
 
-        public IEnumerable<Album> Albums { get; set; }
+        public List<Album> Albums { get; set; }
+        
+        public Artist()
+        {
+            List<Tag> Tags= new List<Tag>(); 
+            List<Album> Albums = new List<Album>(); 
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace spookify
             {
                 try
                 {
-                    Client.BaseAddress = new Uri($"https://ws.audioscrobbler.com/2.0/?");
+                    // Client.BaseAddress = new Uri($"https://ws.audioscrobbler.com/2.0/?");
                     HttpResponseMessage Response = await Client.GetAsync(""); // Make the actual API call.
                     Response.EnsureSuccessStatusCode(); // Throw error if not successful.
                     string StringResponse = await Response.Content.ReadAsStringAsync(); // Read in the response as a string.

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json.Linq;
 
 namespace spookify.Models
@@ -7,10 +8,11 @@ namespace spookify.Models
     public class Tag : BaseEntity
     {
         #region Properties
-
+        public int TagId {get;set;}
         public string TagName { get; set; }
-        
-        public Uri Url { get; set; }
+        // [Key]
+        // public int UriId {get;set;}
+        // public Uri Url { get; set; }
 
         public int? Count { get; set; }
 
@@ -34,7 +36,7 @@ namespace spookify.Models
         public Tag(string name, string uri, int? count = null)
         {
             TagName = name;
-            Url = new Uri(uri, UriKind.RelativeOrAbsolute);
+            // Url = new Uri(uri, UriKind.RelativeOrAbsolute);
             Count = count;
         }
     }

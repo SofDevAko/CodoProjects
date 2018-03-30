@@ -7,8 +7,7 @@ namespace spookify.Models
     {
         public int AlbumId { get; set; }
 
-        [JsonProperty("mbid")]
-        public int AlbumMBID { get; set; }
+        public string AlbumMBID { get; set; }
 
         public string AlbumName { get; set; }
 
@@ -16,12 +15,16 @@ namespace spookify.Models
         public int ArtistId { get; set; }
 
         public string AlbumURL { get; set; }
+        
+        public string AlbumImage { get; set; }
 
         public DateTime AlbumReleaseDate { get; set; }
 
-        public int AlbumListeners { get; set; }
+        public string AlbumListeners { get; set; }
+        
+        public string AlbumSummary {get; set; }
 
-        public int AlbumPlaycount { get; set; }
+        public string AlbumPlaycount { get; set; }
 
         public List<Track> AlbumTracks {get; set; }
 
@@ -30,6 +33,7 @@ namespace spookify.Models
         public Album()
         {
             Tags = new List<string>(); 
+            List<Track> AlbumTracks = new List<Track>();
         }
     }
 }

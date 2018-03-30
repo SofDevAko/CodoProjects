@@ -22,6 +22,8 @@ namespace spookify.Controllers
         _context = context;
     }
 
+
+
     [HttpGet]
     [Route("SingleAlbumInfo")]
         public IActionResult SingleAlbumInfo(string albumsearch, string albumartistsearch)
@@ -43,38 +45,92 @@ namespace spookify.Controllers
             string AlbumURL = (string)AlbumObject["album"]["url"];
             string AlbumListeners = (string)AlbumObject["album"]["listeners"];
             string AlbumPlaycount = (string)AlbumObject["album"]["playcount"]; 
-            string AllAlbumInfo = String.Join(", ", "Album Name:", AlbumName, "Artist:", AlbumArtist, "MBID:",  AlbumMBID, "URL:", AlbumURL, "Listeners:", AlbumListeners, "Playcount:", AlbumPlaycount); 
+            // string AllAlbumInfo = String.Join(", ", "Album Name:", AlbumName, "Artist:", AlbumArtist, "MBID:",  AlbumMBID, "URL:", AlbumURL, "Listeners:", AlbumListeners, "Playcount:", AlbumPlaycount); 
             // Console.WriteLine(AllAlbumInfo); 
 
             ViewBag.AlbumName = AlbumName;
-            ViewBag.AlbumInfo = AllAlbumInfo; 
+            ViewBag.AlbumListeners = AlbumListeners; 
+            ViewBag.AlbumPlaycount = AlbumPlaycount; 
+            ViewBag.AlbumArtist = AlbumArtist; 
+            // ViewBag.AlbumInfo = AllAlbumInfo; 
+            
+            Album newalbum = new Album(){
+                AlbumName = AlbumName,
+                AlbumArtist = AlbumArtist,
+                AlbumMBID = AlbumMBID,
+                AlbumURL = AlbumURL,
+                AlbumListeners = AlbumListeners,
+                AlbumPlaycount = AlbumPlaycount,
+                AlbumTracks = new List<Track>()
+            };
 
             
             var TrackNames = new List<string>();
             var TrackURLs = new List<string>();
             var TrackRanks = new List<string>(); 
             var TrackDurations = new List<string>(); 
+            var AllAlbumItems = new List<string>(); 
+            var SingleAlbumItems = new List<string>(); 
+            
             {
                 int countUp = 0; 
+                int CountH = ((JArray)AlbumObject["album"]["tracks"]["track"]).Count(); 
+                ViewBag.Count = CountH; 
                 foreach(var Item in (string)AlbumObject["album"]["tracks"]["track"][countUp]["name"])
                 {
+                    Track newtrack = new Track
+                    {
+                        TrackRank = (int)AlbumObject["album"]["tracks"]["track"][countUp]["@attr"]["rank"],
+                        TrackName = (string)AlbumObject["album"]["tracks"]["track"][countUp]["name"],
+                        TrackURL = (string)AlbumObject["album"]["tracks"]["track"][countUp]["url"],
+                        TrackDuration = (int)AlbumObject["album"]["tracks"]["track"][countUp]["duration"],
+                        
+                    };
+                    System.Console.WriteLine(newalbum.AlbumTracks);
+                    System.Console.WriteLine("=============================================");
+                    System.Console.WriteLine(newtrack);
+                    newalbum.AlbumTracks.Add(newtrack);
+                    
+                    string TrackRank = (string)AlbumObject["album"]["tracks"]["track"][countUp]["@attr"]["rank"];
+                    TrackRanks.Add((TrackRank).ToString());
+                    AllAlbumItems.Add((TrackRank).ToString()); 
+                    ViewBag.TrackRanks = TrackRanks;
+                    
                     string TrackName = (string)AlbumObject["album"]["tracks"]["track"][countUp]["name"]; 
+                    System.Console.WriteLine(TrackName);
                     TrackNames.Add((TrackName).ToString());
-                    countUp ++; 
+                    AllAlbumItems.Add((TrackName).ToString());  
                     ViewBag.TrackNames = TrackNames; 
                     
                     string TrackURL = (string)AlbumObject["album"]["tracks"]["track"][countUp]["url"]; 
                     TrackURLs.Add((TrackURL).ToString()); 
+                    AllAlbumItems.Add(TrackURL); 
                     ViewBag.TrackURLs = TrackURLs; 
+                    // Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); 
+                    // Console.WriteLine(AllItemInfos); 
                     
                     string TrackDuration = (string)AlbumObject["album"]["tracks"]["track"][countUp]["duration"]; 
                     TrackDurations.Add((TrackDuration).ToString()); 
+                    AllAlbumItems.Add((TrackDuration).ToString()); 
                     ViewBag.TrackDurations = TrackDurations; 
 
-                    string TrackRank = (string)AlbumObject["album"]["tracks"]["track"][countUp]["@attr"]["rank"];
-                    TrackRanks.Add((TrackRank).ToString());
-                    ViewBag.TrackRanks = TrackRanks;
+
+                    
+                    countUp++; 
+                    
+                    SingleAlbumItems.Add((AllAlbumItems).ToString()); 
+                    // Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    // Console.WriteLine(SingleAlbumItems);                                //System.Collections.Generic.List`1[System.String]
+                    ViewBag.SingleAlbumItems = SingleAlbumItems; 
+                    // Console.WriteLine(AllSingleInfo.GetType());                     //System.Collections.Generic.List`1[System.String]
+                    // Console.WriteLine(AllItemInfo.GetType());                       //System.Collections.Generic.List`1[System.String]
+                    // Console.WriteLine(TrackRank.GetType());                         //System.String
+                    
                 }
+                Console.WriteLine(AllAlbumItems[0]); 
+                // AllSingleInfo.ForEach(x => x.ForEach(Console.WriteLine); 
+                ViewBag.AllAlbumItems= AllAlbumItems; 
+                ViewBag.album = newalbum;
             }
 
 
@@ -91,8 +147,7 @@ namespace spookify.Controllers
                     ImageURLs.Add((ImageURLstring).ToString());
                     count ++;
                 }
-                ViewBag.ImageURLs = ImageURLs;
-                ViewBag.ImageSize = ImageSize;
+                ViewBag.MedImage = (string)AlbumObject["album"]["image"][2]["#text"]; 
             }
 
             // ALBUM TAGS

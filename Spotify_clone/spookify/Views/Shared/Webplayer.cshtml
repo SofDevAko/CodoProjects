@@ -5,34 +5,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../wwwroot/css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    
+
     <title>Spookify Webplayer</title>
   </head>
   <body>
     <div id="wrapper">
       <div id="webplayernav" class="sidenav navbar-transparent">
-                <a href="webplayer"><img src="../../wwwroot/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
-                
+                <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
+
                 <a class="nav-link" href="">Search <i class="material-icons">search</i></a>
                 <hr>
                 <a class="nav-link" href="">Home <i class="material-icons">home</i></a>
                 <a class="nav-link" href="">Your Music <i class="material-icons">music_note</i></a>
 
-                
+
                 <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
                 <div id="recently">
-                
+
                 </div>
-            
-        </div>
-        
-      <div id="playercontent" class="text-center">
-           <p>Content here!</p>
-        </div>
+      </div>
+
+  <div id="playercontent" class="text-center">
+      <form action="ArtistGetInfo" method="GET">
+        Artist Search: <input type="text", placeholder="Enter Artist Name" labelfor="ArtistSearch" name="ArtistSearch">
+        <button name="ArtistSearch" type="submit">Search for Artist</button>
+    </form>
+    <div>
+      <p>Content here!</p>
+    </div>
+  </div>
+
+
+
+
 
         <div class="navbar-fixed-bottom webplayer">
             <audio id="audio" preload="auto"></audio>
