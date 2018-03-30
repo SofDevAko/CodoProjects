@@ -75,11 +75,11 @@
     z-index: -1;
   }
   #webplayernav{
-    display: block;
+    display: inline-block;
     top: 0px;
     height: 100%;
     width: 12%;
-    z-index: 2;
+    z-index: 4;
   }
   #webplayernav img{
     border-bottom: 1px solid lightgray;
@@ -94,7 +94,7 @@
     background-color: rgb(8, 8, 8);
     height: 10%;
     width: 100%;
-
+    z-index: 2;
   }
   #v-pills-playercontent{
   position: absolute;
@@ -170,4 +170,13 @@
 #search{
   padding-bottom: 20px;
   border-bottom: 1px solid ghostwhite;
+}
+#user{
+  position: absolute;
+  top: 1%;
+  left: 20%;
+  background-color: rgb(59, 63, 63);
+  z-index: 5;
+  color: whitesmoke;
+  display: inline-block;
 }
