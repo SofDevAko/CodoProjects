@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Chart";
+}
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Chart</title>
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col"><h2>Top Artists</h2>
+                <hr class="heavydivider">
+                <br>
+
+                @foreach(var Artist in @ViewBag.GlobalArtists)
+                {
+                    <h4>@Artist.ArtistName</h4>
+                    <img src="@Artist.ArtistImage">
+                    <br>
+                    <ul>
+                        <li>MBID: @Artist.ArtistMBID</li>
+                        <li>Playcount: @Artist.ArtistPlaycount</li>
+                        <li>Listeners: @Artist.ArtistListeners</li>
+                        <li>URL: @Artist.ArtistURL</li>
+                    </ul>
+                    <hr class="divider">
+                }
+            </div>
+
+            <div class="col"><h2>Top Tracks</h2>
+                <hr class="heavydivider">
+                <br>
+
+                @foreach(var Track in @ViewBag.GlobalTracks)
+                {
+                    <h4>@Track.TrackName</h4>
+                    <h6>@Track.ArtistName</h6>
+                    <img src="@Track.TrackImage">
+                    <ul>
+                        <li>MBID: @Track.TrackMBID</li>
+                        <li>Playcount: @Track.TrackPlaycount</li>
+                        <li>Listeners: @Track.TrackListeners</li>
+                        <li>URL: @Track.TrackURL</li>
+                    </ul>
+                    <hr class="divider">
+                }
+            </div>
+
+            <div class="col"><h2>Top Tags</h2>
+                <hr class="heavydivider">
+                <br>
+
+                @foreach(var Tag in @ViewBag.GlobalTags)
+                {
+                    <h4>@Tag.TagName</h4>
+
+                    <ul>
+                        <li>Reach: @Tag.TagReach</li>
+                        <li>Taggings: @Tag.TagTaggings</li>
+                        <li>URL: @Tag.TagURL</li>
+                    </ul>
+                    <hr class="divider">
+                }
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

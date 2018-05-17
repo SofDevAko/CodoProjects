@@ -1,14 +1,7 @@
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css">
-  </head>
-
-
-<body>
-<p>Album Name: @ViewBag.AlbumName</p>
-<p>Artist: @ViewBag.AlbumArtist</p>
-<p>Listeners: @ViewBag.AlbumListeners</p>
-<p>Playcount: @ViewBag.AlbumPlaycount</p>
+<p>Album Name: @ViewBag.SingleAlbum.AlbumName</p>
+<p>Artist: @ViewBag.SingleAlbum.AlbumArtist</p>
+<p>Listeners: @ViewBag.SingleAlbum.AlbumListeners</p>
+<p>Playcount: @ViewBag.SingleAlbum.AlbumPlaycount</p>
 <p><img src="@ViewBag.MedImage"></p>
 
 <table class="albumtable">
@@ -32,6 +25,3 @@
     }
     </tbody>
 </table>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
