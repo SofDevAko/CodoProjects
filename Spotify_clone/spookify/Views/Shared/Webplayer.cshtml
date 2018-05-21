@@ -5,21 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css">
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+    <script src="https://unpkg.com/can@4/dist/global/can.all.js"></script>
+    <script src="~/js/script.js"></script>
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Spookify Webplayer</title>
   </head>
   <body>
     <div id="wrapper">
-        
-      <div id="webplayernav" class="nav-fill navbar-transparent" role="tablist" aria-orientation="vertical">
+
+      <div id="webplayernav" class="nav-fill navbar-transparent white-pill" role="tablist" aria-orientation="vertical">
         <ul class="nav nav-pills">
-          <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
+          <a href="/"><img src="~/img/spookify2.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="120"></a>
           <li class="nav-item">
           <a  class="nav-link" data-toggle="pill" href="#search">Search <i class="material-icons">search</i></a>
           </li>
@@ -40,8 +43,8 @@
       </div>
       <a id="user" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         
-          <i class="material-icons">account_circle</i>
-          <h3>@ViewBag.User.Username</h3>
+          <img src="~/img/small.png" height="50px" width="30px">
+          <span>@ViewBag.User.Username</span>
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Account</a>
@@ -59,7 +62,7 @@
 
                     <input id="ajax_search" class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search Here!" aria-label="Search" name="search"
                         value="" autocomplete="off">
-                        <button id="searchbtn" class="search" type="submit">
+                        <button id="searchbtn" class="btn btn-light search" type="submit">
                           <i class="material-icons">search</i>
                         </button>
               </form>
@@ -71,18 +74,17 @@
         <div class="tab-pane container" id="yourmusic">YOUR MUSIC IS HERE!</div>
         </div>
 
-        <div class="navbar-fixed-bottom webplayer">
-            <audio id="audio" preload="auto"></audio>
-            <div class="btn-group">
+
+          <audio-player class="fixed-bottom webplayer"></audio-player>
+            <!-- <div class="btn-group">
                 <button onclick="Play('music.mp3','audio');" class="btn btn-custom"><span title="Play" id="play" class="glyphicon icon-play aligned"><i class="material-icons">play_circle_outline</i></span></button>
                 <button onclick="Stop('music.mp3','audio');" class="btn btn-custom"><span title="Stop" id="stop" class="glyphicon glyphicon-stop aligned"><i class="material-icons">stop</i></span></button>
                 <button onclick="Restart('music.mp3','audio');" class="btn btn-custom"><span title="Restart" id="restart" class="glyphicon glyphicon-step-backward aligned"><i class="material-icons">skip_previous</i></span></button>
-                <button onclick="Backward5('music.mp3','audio');" class="btn btn-custom"><span title="-5 seconds" id="play" class="glyphicon glyphicon-fast-backward aligned"><i class="material-icons">fast_rewind</i></span></button>
-                <button onclick="Forward5('music.mp3','audio');" class="btn btn-custom"><span title="+5 seconds" id="play" class="glyphicon glyphicon-fast-forward aligned"><i class="material-icons">fast_forward</i></span></button>
+                <button onclick="Backward5('music.mp3','audio');" class="btn btn-custom"><span title="-5 seconds" id="backward" class="glyphicon glyphicon-fast-backward aligned"><i class="material-icons">fast_rewind</i></span></button>
+                <button onclick="Forward5('music.mp3','audio');" class="btn btn-custom"><span title="+5 seconds" id="forward" class="glyphicon glyphicon-fast-forward aligned"><i class="material-icons">fast_forward</i></span></button>
                 <button onclick="VolumeUp('music.mp3','audio');" class="btn btn-custom"><span title="Volume Up" id="volumeup" class="glyphicon glyphicon-plus aligned"><i class="material-icons">volume_up</i></span></button>
                 <button onclick="VolumeDown('music.mp3','audio');" class="btn btn-custom"><span title="Volume Down" id="volumedown" class="glyphicon glyphicon-minus aligned"><i class="material-icons">volume_down</i></span></button>
-            </div>
-        </div>
+            </div> -->
 
     </div>
     

@@ -221,6 +221,27 @@ def add_list(request, id):
             Movie.objects.create(mov_id=id)
         this_movie = Movie.objects.get(mov_id=id)
         this_user.watchlist.add(this_movie)
+        # Preference Modification
+        url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
+        strresponse = requests.get(url).content
+        the_movie = json.loads(strresponse)
+        print(the_movie["genres"])
+        genre = []
+        for gen in the_movie["genres"]:
+            genre.append(gen["name"])
+        for gen in genre:
+            temp = getattr(this_user, gen)
+            temp += 1
+            setattr(this_user, gen, temp)
+        print(genre)
+        print("Crime: ",this_user.Crime)
+        print("Action: ",this_user.Action)
+        print("Comedy: ",this_user.Comedy)
+        print("Thriller: ",this_user.Thriller)
+        print("Horror: ",this_user.Horror)
+        print("Drama: ",this_user.Drama)
+        print("Romance: ",this_user.Romance)
+        this_user.save()
         return redirect('/watchlist')
     else:
         return redirect('/reg/')

@@ -63,4 +63,35 @@ class Users(models.Model):
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
+    # Preference section
+    #Adventure
+    g12 = models.IntegerField(default = 1)
+    #Fantasy
+    g14 = models.IntegerField(default = 1)
+    #Comedy
+    g35 = models.IntegerField(default = 1)
+    #Romance
+    g10749 = models.IntegerField(default = 1)
+    #Crime
+    g80 = models.IntegerField(default = 1)
+    #Horror
+    g27 = models.IntegerField(default = 1)
+    #Thriller
+    g53 = models.IntegerField(default = 1)
+    #Drama
+    g18 = models.IntegerField(default = 1)
+    #Science Fiction
+    g878 = models.IntegerField(default = 1)
+    #Action
+    g28 = models.IntegerField(default = 1)
+    #Mystery
+    g9648 = models.IntegerField(default = 1)
+    #Animation
+    g16 = models.IntegerField(default = 1)
+    #Family
+    g10751 = models.IntegerField(default = 1)
+    #Western
+    g37 = models.IntegerField(default = 1)
+    pref = ["12","14","35","10749","80","27","53","18","878","28","9648","16","10751","37"]
+    # End of Preference
     objects = UserManager()
