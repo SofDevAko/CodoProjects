@@ -64,34 +64,34 @@ class Users(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     # Preference section
-    #Adventure
-    g12 = models.IntegerField(default = 1)
-    #Fantasy
-    g14 = models.IntegerField(default = 1)
-    #Comedy
-    g35 = models.IntegerField(default = 1)
-    #Romance
-    g10749 = models.IntegerField(default = 1)
-    #Crime
-    g80 = models.IntegerField(default = 1)
-    #Horror
-    g27 = models.IntegerField(default = 1)
-    #Thriller
-    g53 = models.IntegerField(default = 1)
-    #Drama
-    g18 = models.IntegerField(default = 1)
-    #Science Fiction
-    g878 = models.IntegerField(default = 1)
-    #Action
-    g28 = models.IntegerField(default = 1)
-    #Mystery
-    g9648 = models.IntegerField(default = 1)
-    #Animation
-    g16 = models.IntegerField(default = 1)
-    #Family
-    g10751 = models.IntegerField(default = 1)
-    #Western
-    g37 = models.IntegerField(default = 1)
-    pref = ["12","14","35","10749","80","27","53","18","878","28","9648","16","10751","37"]
+    #Adventure 12
+    Adventure = models.IntegerField(default = 1)
+    #Fantasy 14
+    Fantasy = models.IntegerField(default = 1)
+    #Comedy 35
+    Comedy = models.IntegerField(default = 1)
+    #Romance 10749
+    Romance = models.IntegerField(default = 1)
+    #Crime 80
+    Crime = models.IntegerField(default = 1)
+    #Horror 27
+    Horror = models.IntegerField(default = 1)
+    #Thriller 53
+    Thriller = models.IntegerField(default = 1)
+    #Drama 18
+    Drama = models.IntegerField(default = 1)
+    #SciFi 878
+    SciFi = models.IntegerField(default = 1)
+    #Action 28
+    Action = models.IntegerField(default = 1)
+    #Mystery 9648
+    Mystery = models.IntegerField(default = 1)
+    #Animation 16
+    Animation = models.IntegerField(default = 1)
+    #Family 10751
+    Family = models.IntegerField(default = 1)
+    #Western 37
+    Western = models.IntegerField(default = 1)
+    pref = [Adventure,Fantasy,Comedy,Romance,Crime,Horror,Thriller,Drama,SciFi,Action,Mystery,Animation,Family,Western]
     # End of Preference
     objects = UserManager()

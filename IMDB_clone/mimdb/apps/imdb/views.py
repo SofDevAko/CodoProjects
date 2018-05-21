@@ -57,14 +57,53 @@ def watchlist(request):
             url = "https://api.themoviedb.org/3/movie/" + str(rev.movie) + "?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
             strresponse = requests.get(url).content
             movie = [json.loads(strresponse)]
-            
             rev_list[movie[0]["poster_path"]]=rev
         for item in user.watchlist.all():
             url = "https://api.themoviedb.org/3/movie/" + str(item.mov_id) + "?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
             strresponse = requests.get(url).content
             movie = [json.loads(strresponse)]
             mov_list+=movie
+        
+        # Creating Suggestions
+        total = 28
+        pref = []
+        adv = user.Adventure
+        fan = user.Fantasy
+        com = user.Comedy
+        rom = user.Romance
+        cri = user.Crime
+        hor = user.Horror
+        thr = user.Thriller
+        dra = user.Drama
+        sci = user.SciFi
+        act = user.Action
+        mys = user.Mystery
+        ani = user.Animation
+        fam = user.Family
+        wes = user.Western
+        pref.append(adv)
+        pref.append(fan)
+        pref.append(com)
+        pref.append(rom)
+        pref.append(cri)
+        pref.append(hor)
+        pref.append(thr)
+        pref.append(dra)
+        pref.append(sci)
+        pref.append(act)
+        pref.append(mys)
+        pref.append(ani)
+        pref.append(fam)
+        pref.append(wes)
+        totpref = 0
+        for p in pref:
+            totpref += p
+        for pr in pref:
+            pr=tot*pr/totpref
+        print(pref)
+        print(totpref)
         context = {
+            "sug_list":mov_list,
             "rev_list":rev_list,
             "mov_list":mov_list,
             "user":user,
@@ -186,6 +225,7 @@ def add(request):
     return redirect ('/search')
 
 def show(request, id):
+    thisone = False
     url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
     strresponse = requests.get(url).content
     movie = json.loads(strresponse)
@@ -196,7 +236,13 @@ def show(request, id):
     movie["budget"]="{:,}".format(movie["budget"])
     movie["revenue"]="{:,}".format(movie["revenue"])
     if 'curuser' in request.session:
+        user = Users.objects.get(id=request.session['curuser'])
+        movlist = user.watchlist.all()
+        for mov in movlist:
+            if movie["id"] == mov.mov_id:
+                thisone = True
         context = {
+            "thisone":thisone,
             "movie":movie,
             "simmovies":simmovies,
             "reviews":reviews,
@@ -221,19 +267,22 @@ def add_list(request, id):
             Movie.objects.create(mov_id=id)
         this_movie = Movie.objects.get(mov_id=id)
         this_user.watchlist.add(this_movie)
+        
         # Preference Modification
         url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
         strresponse = requests.get(url).content
         the_movie = json.loads(strresponse)
-        print(the_movie["genres"])
         genre = []
         for gen in the_movie["genres"]:
+            if gen == "Science Fiction":
+                gen = "SciFi"
             genre.append(gen["name"])
         for gen in genre:
+            if gen == "Science Fiction":
+                gen = "SciFi"
             temp = getattr(this_user, gen)
             temp += 1
             setattr(this_user, gen, temp)
-        print(genre)
         print("Crime: ",this_user.Crime)
         print("Action: ",this_user.Action)
         print("Comedy: ",this_user.Comedy)
@@ -241,7 +290,9 @@ def add_list(request, id):
         print("Horror: ",this_user.Horror)
         print("Drama: ",this_user.Drama)
         print("Romance: ",this_user.Romance)
+        print("SciFi: ", this_user.SciFi)
         this_user.save()
+
         return redirect('/watchlist')
     else:
         return redirect('/reg/')
@@ -251,6 +302,31 @@ def rm_list(request, id):
         this_user = Users.objects.get(id=request.session['curuser'])
         this_movie = Movie.objects.get(mov_id=id)
         this_user.watchlist.remove(this_movie)
+
+        # Preference Modification
+        url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699"
+        strresponse = requests.get(url).content
+        the_movie = json.loads(strresponse)
+        genre = []
+        for gen in the_movie["genres"]:
+            if gen == "Science Fiction":
+                gen = "SciFi"
+            genre.append(gen["name"])
+        for gen in genre:
+            if gen == "Science Fiction":
+                gen = "SciFi"
+            temp = getattr(this_user, gen)
+            temp -= 1
+            setattr(this_user, gen, temp)
+        print("Crime: ",this_user.Crime)
+        print("Action: ",this_user.Action)
+        print("Comedy: ",this_user.Comedy)
+        print("Thriller: ",this_user.Thriller)
+        print("Horror: ",this_user.Horror)
+        print("Drama: ",this_user.Drama)
+        print("Romance: ",this_user.Romance)
+        print("SciFi: ", this_user.SciFi)
+        this_user.save()
         return redirect('/watchlist')
     else:
         return redirect('/reg/')

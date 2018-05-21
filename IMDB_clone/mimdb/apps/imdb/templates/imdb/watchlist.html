@@ -30,7 +30,7 @@
             <div class="col-12 navbar row">
                 <!--nav which is also a column-->
                 <a class="col-1 navbar-brand" href="/">
-                    <img src="{% static "imdb/images/imdblogo.jpg" %}" alt="Home" />
+                    <img src="{% static " imdb/images/imdblogo.jpg " %}" alt="Home" />
                 </a>
 
 
@@ -56,10 +56,10 @@
                     </select>
 
                     <button class="search" type="submit" value="movies">
-                        <img class="search" src="{% static "imdb/images/search.jpg" %}" alt="Home" />
+                        <img class="search" src="{% static " imdb/images/search.jpg " %}" alt="Home" />
                     </button>
                 </form>
-                <div class = "movies-horz" id='auto-searches'>
+                <div class="movies-horz" id='auto-searches'>
 
                 </div>
                 <div id='searches'>
@@ -77,31 +77,50 @@
             <!-- API Entries -->
             <div id="watch-list">
                 <h3>Your Watchlist</h3>
-                    {% for movie in mov_list %}
+                {% for movie in mov_list %}
                 <div class="horz">
-                        <a href="/{{movie.id}}"><img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}"></a>
-                        <!--p>{{movie.title}}</p-->                   
-                        <!--a href="/{{movie.id}}">View</a-->
-                        <p ><a href="/{{movie.id}}/rm_list">Remove from Watchlist</a></p>
-                </div>    
-                    {% endfor %}
+                    <a href="/{{movie.id}}">
+                        <img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}">
+                    </a>
+                    <!-- <p>{{movie.title}}</p>                    -->
+                    <!--a href="/{{movie.id}}">View</a-->
+                    <p>
+                        <a href="/{{movie.id}}/rm_list">Remove from Watchlist</a>
+                    </p>
+                </div>
+                {% endfor %}
             </div>
 
-<br><h3 class ="reviews">Your Reviews</h3>
-            
-                {% for rev,val in rev_list.iteritems %}
-                <div class="reviews">
-                    <div class='movie-reviews'>
-                        <a class = "movie-reviews" href="/{{val.movie}}"><img class = "movie-reviews" src="https://image.tmdb.org/t/p/w92/{{rev}}"></a>   
-                    </div>
-                    <div class='movie-reviews'>
-                        <br>Rating: {{val.rev_score}}/5<br>
-                        {{val.rev_text}} <br>      
-                        <a href="/{{rev.movie}}/{{rev.id}}/rm_review">Delete</a>
-                    </div>
-                </div> 
-                {% endfor %}
+            <br>
+            <h3 class="reviews">Your Reviews</h3>
 
+            {% for rev,val in rev_list.iteritems %}
+            <div class="reviews">
+                <div class='movie-reviews'>
+                    <a class="movie-reviews" href="/{{val.movie}}">
+                        <img class="movie-reviews" src="https://image.tmdb.org/t/p/w92/{{rev}}">
+                    </a>
+                </div>
+                <div class='movie-reviews'>
+                    <br>Rating: {{val.rev_score}}/5
+                    <br> {{val.rev_text}}
+                    <br>
+                    <a href="/{{rev.movie}}/{{rev.id}}/rm_review">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+            <h3>Movies You May Like!</h3>
+            <div id="suggestions">
+                {% for movie in sug_list %}
+                <div class="horz">
+                    <a href="/{{movie.id}}">
+                        <img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}">
+                    </a>
+                    <p>{{movie.title}}</p>
+                    <!--a href="/{{movie.id}}">View</a-->
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </body>
@@ -122,4 +141,5 @@
         })
     });
 </script>
+
 </html>

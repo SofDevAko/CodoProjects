@@ -92,9 +92,18 @@
                     <br> Summary: {{movie.overview}}
                     <br> Budget: ${{movie.budget}}
                     <br> Revenue: ${{movie.revenue}}
+                    <br> Genre: {% for gen in movie.genres %}
+                        <ul>
+                            <li>{{gen.name}}</li>
+                        </ul>
+                        {% endfor %}
                     <br> Release Date: {{movie.release_date}}
                     <br>
+                    {% if thisone %}
+                    <a href="/{{movie.id}}/rm_list">Remove from Watchlist</a>
+                    {% else %}
                     <a href="/{{movie.id}}/add_list">Add to Watchlist</a>
+                    {% endif %}
                     <hr>
 
                     <h3>Leave a Review?</h3>
