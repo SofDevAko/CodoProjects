@@ -28,8 +28,8 @@ namespace Extensions {
         }
 
 
-        // retrieve detailed info about 'this'
-            // example ---> valueX.DigDeep();
+        // // retrieve detailed info about 'this'
+        // //     example ---> valueX.DigDeep();
         // public static void DigDeep<T>(this T x)
         // {
         //     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -79,7 +79,7 @@ namespace Extensions {
         public static Object Intro(this object Object, string String)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("'INTRO extension METHOD' STARTED");
+            Console.WriteLine("'-----INTRO extension METHOD' STARTED");
             Console.ResetColor();
 
             string UpperString = String.ToUpper();
@@ -93,8 +93,9 @@ namespace Extensions {
             }
 
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("'INTRO extension METHOD' COMPLETED");
+            Console.WriteLine("'-----INTRO extension METHOD' COMPLETED");
             Console.ResetColor();
+            Console.WriteLine();
 
             return UpperString;
         }
