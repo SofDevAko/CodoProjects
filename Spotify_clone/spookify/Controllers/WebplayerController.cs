@@ -53,6 +53,44 @@ namespace spookify.Controllers
             
             if(firstid != null)
             {
+                var client = new RestClient("https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=278be908abb6863ead7c33ceb7899607&format=json");
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Postman-Token", "81422252-3fb6-467e-af8f-0d6aba513fbd");
+                request.AddHeader("Cache-Control", "no-cache");
+
+                IRestResponse response = client.Execute(request);
+
+
+                var allTopTracks = response.Content;
+
+                JObject parsedTopTracks= JObject.Parse(allTopTracks);
+
+                ViewBag.allTopTracks = parsedTopTracks;
+
+                var GlobalTracks = new List<Track>();
+
+                foreach(var item in parsedTopTracks["tracks"]["track"])
+                {
+                    Track GlobalTrack = new Track ()
+                    {
+                        TrackName = (string)item["name"],
+                        TrackDuration = (int)item["duration"],
+                        TrackPlaycount = (int)item["playcount"],
+                        TrackListeners = (int)item["listeners"],
+                        TrackURL = (string)item["url"],
+                        TrackMBID = (string)item["mbid"],
+                        TrackImage = (string)item["image"][1]["#text"],
+                        ArtistName = (string)item["artist"]["name"],
+                        ArtistMBID = (string)item["artist"]["mbid"],
+                        ArtistURL = (string)item["artist"]["url"]
+                    };
+                    GlobalTracks.Add(GlobalTrack);
+
+                ViewBag.GlobalTracks = GlobalTracks;
+
+            }
+
+
                 int id = (int)firstid;
                 User curuser = _context.Users.SingleOrDefault(u=>u.UserId == id);
                 ViewBag.User = curuser;

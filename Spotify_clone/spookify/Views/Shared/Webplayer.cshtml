@@ -55,14 +55,19 @@
         <div id="v-pills-playercontent" class="tab-content">
           <!-- Home Page -->
           <div class="tab-pane active container" id="webhome">
-              <h2>Top Artist Data</h2>
-        <div>
-            <p>@ViewBag.firstArtistName</p>
-            <p># of Listeners: @ViewBag.listeners</p>
-            <p>Playcount: @ViewBag.Playcount</p>
-            <p>MBID: @ViewBag.mbid</p>
-            <p>URL:  <a href="@ViewBag.URL">Band Page</a></p>
-        </div>
+              <h2 class="sticky-top col-11" style="background-color:black">Top Tracks</h2>
+
+            @foreach(var Track in @ViewBag.GlobalTracks)
+            {
+            <div class="toptrack">
+              <img src="@Track.TrackImage" alt="track_image">
+              <h4>@Track.TrackName</h4>
+              by: <h5>@Track.ArtistName</h5>
+              <p># of Listeners: @Track.TrackListeners</p>
+              <p>Playcount: @Track.TrackPlaycount</p>
+              <p>URL:  <a href="@Track.TrackURL">Track Page</a></p>
+            </div>
+            }
           </div>
           <!-- Search Page -->
           <div class="tab-pane container" id="search">
