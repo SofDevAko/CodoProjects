@@ -8,6 +8,8 @@ from ..login.models import *
 import bcrypt, random
 import requests, json
 from django.core import serializers
+import matplotlib
+import matplotlib.pyplot as plt
 
 
 def index(request):
@@ -67,6 +69,7 @@ def watchlist(request):
         # Creating Suggestions
         total = 28
         pref = []
+        
         adv = user.Adventure
         fan = user.Fantasy
         com = user.Comedy
@@ -96,14 +99,52 @@ def watchlist(request):
         pref.append(fam)
         pref.append(wes)
         totpref = 0
+        totsug = 0
+        sug_list = []
+        sug_films = []
+        gen_ids = ['12','14','35','10749','80','27','53','18','878','28','9648','16','10751','37']
         for p in pref:
             totpref += p
         for pr in pref:
-            pr=tot*pr/totpref
-        print(pref)
+            pr=total*pr/totpref
+            sug_list.append(pr)
+        for su in sug_list:
+            totsug += su
+        
+        for su in range(len(sug_list)):
+            many = sug_list[su]
+            genid = gen_ids[su]
+            url = "https://api.themoviedb.org/3/genre/"+ genid +"/movies?api_key=1a1ef1aa4b51f19d38e4a7cb134a5699&language=en-US&include_adult=true&sort_by=id.desc"
+            strresponse = requests.get(url).content
+            movieJSON = [json.loads(strresponse)]
+            movie = movieJSON[0]["results"]
+            # print(movie[:many+1])
+            for idx in range(many):
+                rnd = random.choice(movie)
+                sug_films.append(rnd)
+                movie.remove(rnd)
+        print(sug_list)
         print(totpref)
+        # print(sug_films)
+        print(len(sug_films))
+        
+        #Plotting interest chart
+
+        # labels = 'Adventure', 'Fantasy', 'Comedy', 'Romance', 'Crime', 'Horror', 'Thriller', 'Drama', 'SciFi', 'Action', 'Mystery', 'Animation', 'Family', 'Western'
+        # sizes = sug_list
+        # colors = ['gold', 'yellowgreen', 'lightcoral', 'pink', 'lightskyblue', 'red', 'brown', 'orange', 'green', 'purple', 'darkgreen', 'beige', 'darkred', 'blue']
+        # patches, texts = plt.pie(sizes, colors=colors, shadow=True, startangle=90)
+        # plt.legend(patches, labels, loc="best")
+        # plt.axis('equal')
+        # plt.tight_layout()
+        # plt.show()
+        if mov_list:
+            background = random.choice(mov_list)
+        else:
+            background = None
         context = {
-            "sug_list":mov_list,
+            "background":background,
+            "sug_list":sug_films,
             "rev_list":rev_list,
             "mov_list":mov_list,
             "user":user,

@@ -20,8 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 </head>
-
-<body>
+<body style="background-image:url('https://image.tmdb.org/t/p/original/{{background.poster_path}}')">
 
     <div id="wrapper" class="container">
         <div id="main-content" class="">
@@ -30,7 +29,7 @@
             <div class="col-12 navbar row">
                 <!--nav which is also a column-->
                 <a class="col-1 navbar-brand" href="/">
-                    <img src="{% static " imdb/images/imdblogo.jpg " %}" alt="Home" />
+                    <img src="{% static "imdb/images/imdblogo.jpg" %}" alt="Home" />
                 </a>
 
 
@@ -56,7 +55,7 @@
                     </select>
 
                     <button class="search" type="submit" value="movies">
-                        <img class="search" src="{% static " imdb/images/search.jpg " %}" alt="Home" />
+                        <img class="search" src="{% static "imdb/images/search.jpg" %}" alt="Home" />
                     </button>
                 </form>
                 <div class="movies-horz" id='auto-searches'>
@@ -116,7 +115,7 @@
                     <a href="/{{movie.id}}">
                         <img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}">
                     </a>
-                    <p>{{movie.title}}</p>
+                    <!-- <p class="text-center">{{movie.title}}</p> -->
                     <!--a href="/{{movie.id}}">View</a-->
                 </div>
                 {% endfor %}
