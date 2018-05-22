@@ -54,7 +54,16 @@
         
         <div id="v-pills-playercontent" class="tab-content">
           <!-- Home Page -->
-          <div class="tab-pane active container" id="webhome">WELCOME HOME!</div>
+          <div class="tab-pane active container" id="webhome">
+              <h2>Top Artist Data</h2>
+        <div>
+            <p>@ViewBag.firstArtistName</p>
+            <p># of Listeners: @ViewBag.listeners</p>
+            <p>Playcount: @ViewBag.Playcount</p>
+            <p>MBID: @ViewBag.mbid</p>
+            <p>URL:  <a href="@ViewBag.URL">Band Page</a></p>
+        </div>
+          </div>
           <!-- Search Page -->
           <div class="tab-pane container" id="search">
             <h1>Search</h1>

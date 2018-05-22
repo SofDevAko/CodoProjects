@@ -1,22 +1,22 @@
 <div id="playercontent" class="text_center">
-    
+
     <div id="artistsearchtop" class="aligned_left">
-        <h2>@ViewBag.ArtistName</h2>
-        <p>Listeners   |  @ViewBag.ArtistListeners</p>
-        <p>Playcount  |  @ViewBag.ArtistPlaycount</p>
-        <p>URL           |  @ViewBag.ArtistURL</p>
-        <p>
-        </p>
-        <p>Tags          |  @ViewBag.ArtistTags</p>
-        <p>Artist Biography Summary  |  @ViewBag.ArtistBIO</p>
-    </div>  
-    
+        <h2>@ViewBag.Artist.ArtistName</h2>
+        <p>MBID: @ViewBag.Artist.ArtistMBID</p>
+        <p>URL: @ViewBag.Artist.ArtistURL</p>
+        <p>Image: @ViewBag.Artist.ArtistImage</p>
+        <p>Listeners: @ViewBag.Artist.ArtistListeners</p>
+        <p>Playcount: @ViewBag.Artist.ArtistPlaycount</p>
+        <p>Tags: @ViewBag.ArtistTags</p>
+        <p>Artist Biography Summary: @ViewBag.Artist.ArtistBio</p>
+    </div>
+
 
     <div id="allartistalbums" class="aligned_left">
         <h4>Albums</h4>
         <hr style="border: 1px solid grey">
-        
-        
+
+
         <p>@ViewBag.AlbumPlaycounts</p>
         <table class="albumtable">
                 <tr>
@@ -25,7 +25,7 @@
                     <th>Playcount</th>
                 </tr>
     @{
-    @foreach(var album in ViewBag.artist.Albums)
+    @foreach(var album in ViewBag.Artist.Albums)
     {
         <tr>
             <td><img src="@album.AlbumImage"></td>

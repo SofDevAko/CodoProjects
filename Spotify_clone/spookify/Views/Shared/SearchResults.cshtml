@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "SearchResults";
+}
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/style.css">
+        <title>Chart</title>
+
+    </head>
+
+
+    <body>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col"><h2>Artist Search Results</h2>
+                <hr class="heavydivider">
+                <br>
+
+                    @foreach(var Artist in @ViewBag.ArtistsList)
+                    {
+                        <h4>@Artist.ArtistName</h4>
+                        <img src="@Artist.ArtistImage">
+                        <br>
+                        <ul>
+                            <li>MBID: @Artist.ArtistMBID</li>
+                            <li>Listeners: @Artist.ArtistListeners</li>
+                            <li>URL: @Artist.ArtistURL</li>
+                        </ul>
+                        <hr class="divider">
+                    }
+                </div>
+
+
+                <div class="col"><h2>Album Search Results</h2>
+                <hr class="heavydivider">
+                <br>
+
+                    @foreach(var Album in @ViewBag.AlbumsList)
+                    {
+                        <h4>@Album.AlbumName</h4>
+                        <h6>@Album.AlbumArtist</h6>
+                        <img src="@Album.AlbumImage">
+                        <ul>
+                            <li>MBID: @Album.AlbumMBID</li>
+                            <li>URL: @Album.AlbumURL</li>
+                        </ul>
+                        <hr class="divider">
+                    }
+                </div>
+
+
+                <div class="col"><h2>Track Search Results</h2>
+                <hr class="heavydivider">
+                <br>
+
+                    @foreach(var Track in @ViewBag.TracksList)
+                    {
+                        <h4>@Track.TrackName</h4>
+                        <h6>@Track.ArtistName</h6>
+                        <img src="@Track.TrackImage">
+                        <ul>
+                            <li>MBID: @Track.TrackMBID</li>
+                            <li>Listeners: @Track.TrackListeners</li>
+                            <li>URL: @Track.TrackURL</li>
+                        </ul>
+                        <hr class="divider">
+                    }
+                </div>
+
+        </div>
+
+    </body>
+
+</html>

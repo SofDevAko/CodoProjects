@@ -1,0 +1,10 @@
+@foreach(var artist in ViewBag.topartist)
+{
+    <div>
+    <p>Artist: <a href="@artist.AlbumURL">@artist.AlbumName</a></p>
+    <p>Album Name: @artist.AlbumName</p>
+    <p>@artist.AlbumListeners</p>
+    <p>@artist.AlbumPlaycount</p>
+    <p>@artist.AlbumName</p>
+    </div>
+}

@@ -1,7 +1,28 @@
-<h2>View Top Tracks</h2>
-<button name="allTopTracks"; class="btn btn-info"; onclick="window.location.href = '/Track';">View Top Tracks</button>
-<br>
-<a href="Track">View All Top Tracks</a>
+
+<div id="fullsearch">
+    <h2><b>Search Artists, Albums, Tracks, etc. </b></h2>
+    <form action="FullSearch" method="GET">
+        <input type="text" name="SearchQuery" placeholder="Enter search criteria">
+        <button class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+
+<hr style="border: 1px solid grey">
+<div id="charts">
+    <h2><b>Global</b>Top Artist and Track Charts</h2>
+        <a href="ViewGlobalCharts">View Global Charts</a>
+
+    <br>
+    <h2><b>Geo</b>Top Artist and Track Charts</h2>
+        <form action="ViewGeoCharts" method="GET">
+            <input type="text" name="GeoSearch" placeholder="Enter Country/Geo">
+            <button class="btn btn-primary">View Geo Charts</button>
+        </form>
+
+    <br>
+</div>
+
 
 <hr style="border: 1px solid grey">
 <br>
@@ -25,7 +46,7 @@
 </div>
 
 
-<hr style="border: 1px solid grey">
+<!-- <hr style="border: 1px solid grey">
 <br>
 <h2>Artist Top Album Search</h2>
 <div>
@@ -35,11 +56,11 @@
     </form>
 </div>
 
-<hr style="border: 1px solid grey">
+<hr style="border: 1px solid grey"> -->
 
-<h2>Top Artist Data</h2>
+<!-- <h2>Top Artist Data</h2>
 <p>Artist Name: @ViewBag.firstArtistName</p>
 <p># of Listeners: @ViewBag.listeners</p>
 <p>Playcount: @ViewBag.Playcount</p>
 <p>MBID: @ViewBag.mbid</p>
-<p>URL:  <a href="@ViewBag.URL">Band Page</a></p>
+<p>URL:  <a href="@ViewBag.URL">Band Page</a></p> -->
