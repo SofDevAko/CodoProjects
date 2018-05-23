@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
-// using System.Linq;
+using System.Linq;
 // using System.Threading.Tasks;
 // using System.Net;
 // using System.Net.Http;
 // using System.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 // using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 // using Newtonsoft.Json;
+using Extensions;
 using RestSharp;
 using spookify.Models;
 
@@ -30,6 +32,9 @@ namespace spookify.Controllers
         [Route("workingindex")]
         public IActionResult WorkingIndex()
         {
+
+
+
             return View();
         }
 

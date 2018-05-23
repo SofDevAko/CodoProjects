@@ -126072,3 +126072,460 @@ TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
 TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
 TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
 TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+NEW PLAYLIST ---> spookify.Models.Playlist
+NEW PLAYLIST ---> spookify.Models.Playlist
+NEW PLAYLIST ---> spookify.Models.Playlist
+NEW PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST DESCRIPTION ---> playlist description
+PLAYLIST IMAGE ---> playlist url
+NEW PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST DESCRIPTION ---> RH playlist description
+PLAYLIST IMAGE ---> RH playlist image
+NEW PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST DESCRIPTION ---> RH playlist description
+PLAYLIST IMAGE ---> RH playlist image
+NEW PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST DESCRIPTION ---> RH playlist description
+PLAYLIST IMAGE ---> RH playlist image
+PLAYLISTTRACK ---> spookify.Models.Track
+TRACK NAME ---> Karma Police
+ARTIST NAME ---> Radiohead
+PLAYLISTTRACK ---> spookify.Models.Track
+TRACK NAME ---> Karma Police
+ARTIST NAME ---> Radiohead
+NEW PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST DESCRIPTION ---> RH playlist description
+PLAYLIST IMAGE ---> RH playlist image
+PLAYLISTTRACK ---> spookify.Models.Track
+TRACK NAME ---> Karma Police
+ARTIST NAME ---> Radiohead
+PLAYLISTTRACK ---> spookify.Models.Track
+TRACK NAME ---> Karma Police
+ARTIST NAME ---> Radiohead
+PLAYLISTTRACK ---> spookify.Models.Track
+TRACK NAME ---> Karma Police
+ARTIST NAME ---> Radiohead
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+XYZ ---> spookify.Models.Playlist
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+XYZ ---> spookify.Models.Playlist
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 1
+XYZ ---> spookify.Models.Playlist
+PLAYLISTS ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XSTRING ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+XTRACKS ---> 2
+XYZ ---> spookify.Models.Playlist
+XYZ ---> spookify.Models.Playlist
+YPLAYLIST ---> spookify.Models.Playlist
+YPLAYLIST ---> spookify.Models.Playlist
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 1
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 2
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 1
+YTRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 2
+YTRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 1
+YTRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+X TRACK ---> spookify.Models.Track
+THING TRACK ---> 1
+X TRACK ---> spookify.Models.Track
+THING TRACK ---> 2
+YPLAYLIST ---> spookify.Models.Playlist
+YNAME ---> Radiohead
+YID ---> 2
+YTRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+SINGLEPLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST ID ---> 1
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+X TRACK ---> spookify.Models.Track
+THING TRACK ---> 1
+X TRACK ---> spookify.Models.Track
+THING TRACK ---> 2
+SINGLEPLAYLIST ---> spookify.Models.Playlist
+PLAYLIST NAME ---> Radiohead
+PLAYLIST ID ---> 2
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.TrackPlaylistJoin]
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+SINGLE TRACK ---> spookify.Models.Track
+ITEMT TRACK ---> 1
+SINGLE TRACK ---> spookify.Models.Track
+ITEMT TRACK ---> 2
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+NEW PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+NEW PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+NEW PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+NEW PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+ONE PLAYLIST ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+TRACK ---> spookify.Models.TrackPlaylistJoin
+TRACK ---> spookify.Models.TrackPlaylistJoin
+TRACK ---> spookify.Models.TrackPlaylistJoin
+TRACK ---> spookify.Models.TrackPlaylistJoin
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACKS ---> 
+PLAYLIST TRACKS ---> 
+PLAYLIST TRACKS ---> 
+PLAYLIST TRACKS ---> 
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST NAME ---> Radiohead
+PLAYLIST TRACKS ---> 
+PLAYLIST NAME ---> Indie Jams
+PLAYLIST TRACKS ---> 
+PLAYLIST NAME ---> Rap
+PLAYLIST TRACKS ---> 
+PLAYLIST NAME ---> Emo
+PLAYLIST TRACKS ---> 
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST NAME ---> Radiohead
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Indie Jams
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Rap
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Emo
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST NAME ---> Radiohead
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Indie Jams
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Rap
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+PLAYLIST NAME ---> Emo
+PLAYLIST TRACKS ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ALBUMS LIST ---> System.Collections.Generic.List`1[spookify.Models.Album]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+ARTISTS LIST ---> System.Collections.Generic.List`1[spookify.Models.Artist]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACKS LIST ---> System.Collections.Generic.List`1[spookify.Models.Track]
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST TRACK COUNT ---> 0
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST TRACK COUNT ---> 0
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST TRACK COUNT ---> 0
+SINGLE PLAYLIST ---> spookify.Models.Playlist
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST NAME ---> Radiohead
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Indie Jams
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Rap
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Emo
+DESCRIPTION ---> 
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST NAME ---> Radiohead
+DESCRIPTION ---> RH playlist description
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Indie Jams
+DESCRIPTION ---> Indie Jams DESCRIPTION
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Rap
+DESCRIPTION ---> Rap DESCRIPTION
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST NAME ---> Emo
+DESCRIPTION ---> Emo DESCRIPTION
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+COUNT ---> 4
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+PLAYLIST TRACK COUNT ---> 0
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+TRACK ---> spookify.Models.PlaylistTrack
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist
+X ALL PLAYLISTS ---> spookify.Models.Playlist

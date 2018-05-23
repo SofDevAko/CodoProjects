@@ -1,4 +1,46 @@
+<div id="Playlist">
+    <h2><b>Create Playlist</b></h2>
 
+    <h4>Create a New Playlist</h4>
+    <form action="CreatePlaylist" method="POST">
+
+        Name: <input type="text" id="playlistName" name="playlistName" placeholder="Name" value="Radiohead">
+        Description: <input type="text" id="playlistDescription" name="playlistDescription" placeholder="Description" value="RH playlist description">
+        Image: <input type="text" id="playlistImage" name="playlistImage" placeholder="Image" value="RH playlist image">
+
+        <button>Create Playlist</button>
+
+    </form>
+
+    <br>
+
+    <h4>Create Track</h4>
+    <form action="CreateNewTrack" method="POST">
+
+        <button>Create Track</button>
+
+
+    </form>
+
+
+    <h4>Add Track to Playlist</h4>
+    <form action="AddPlaylistTrack" method="POST">
+
+        <button>Add Track to Playlist</button>
+
+
+    </form>
+
+    <br>
+    <a href="/ViewPlaylistPage/1">Playlist</a>
+    <a href="/ViewPlaylistPage/2">Playlist</a>
+
+
+</div>
+
+
+
+<hr style="border: 1px solid grey">
 <div id="fullsearch">
     <h2><b>Search Artists, Albums, Tracks, etc. </b></h2>
     <form action="FullSearch" method="GET">
@@ -6,6 +48,7 @@
         <button class="btn btn-primary">Search</button>
     </form>
 </div>
+
 
 
 <hr style="border: 1px solid grey">
