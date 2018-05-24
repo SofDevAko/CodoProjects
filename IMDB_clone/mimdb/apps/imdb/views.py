@@ -138,6 +138,7 @@ def watchlist(request):
         # plt.axis('equal')
         # plt.tight_layout()
         # plt.show()
+        
         if mov_list:
             background = random.choice(mov_list)
         else:
