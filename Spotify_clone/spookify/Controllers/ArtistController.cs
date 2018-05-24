@@ -71,7 +71,7 @@ namespace spookify.Controllers
                 ArtistName = (string)BandNameObject["artist"]["name"],
                 ArtistMBID = (string)BandNameObject["artist"]["mbid"],
                 ArtistURL = (string)BandNameObject["artist"]["url"],
-                ArtistImage = (string)BandNameObject["artist"]["image"][1]["#text"],
+                ArtistImage = (string)BandNameObject["artist"]["image"][3]["#text"],
                 ArtistBio = (string)BandNameObject["artist"]["bio"]["summary"],
                 ArtistListeners = (int)BandNameObject["artist"]["stats"]["listeners"],
                 ArtistPlaycount = (int)BandNameObject["artist"]["stats"]["playcount"],
@@ -103,7 +103,7 @@ namespace spookify.Controllers
                     {
                         AlbumName =  (string)AlbumObject["topalbums"]["album"][countA]["name"],
                         AlbumPlaycount =(string)AlbumObject["topalbums"]["album"][countA]["playcount"],
-                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][2]["#text"],
+                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][1]["#text"],
                         AlbumURL = (string)AlbumObject["topalbums"]["album"][countA]["url"],
                     };
                     newartist.Albums.Add(newalbum);

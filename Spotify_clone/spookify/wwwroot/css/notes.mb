@@ -1,0 +1,100 @@
+// allPlaylists ---> System.Collections.Generic.List`1[spookify.Models.Playlist]
+            // var XallPlaylists = _context.Playlists
+            //     .Include(playlist => playlist.PlaylistTracks)
+            //     .ThenInclude(s => s.Track)
+            //     .SingleOrDefault(w => w.PlaylistId == id).ToString();
+            //     // .ToList();
+
+            //     XallPlaylists.Intro("x all playlists");
+
+            //     ViewBag.XallPlaylists = XallPlaylists;
+
+
+            // var allPlaylists = _context.Playlists
+            //     .Include(playlist => playlist.PlaylistTracks)
+            //     .ThenInclude(s => s.Track)
+            //     .ToList();
+
+            // foreach(var onePlaylist in allPlaylists)
+            // {
+            //     foreach(var track in onePlaylist.PlaylistTracks)
+            //     {
+            //         // TRACK ID ---> '1' OR '3' OR '2' etc.
+            //             Console.WriteLine(track.TrackId);
+
+            //         // TRACK ---> spookify.Models.PlaylistTrack
+            //             // Console.WriteLine("TRACK NAME ---> " + track.Track);
+
+            //         // TRACK ---> spookify.Models.PlaylistTrack
+            //             // track.Intro("TRACK");
+            //     }
+            // }
+
+
+
+            // // COUNT ---> '2' OR '4' etc.
+            //     // int allPlaylistCount = allPlaylists.Count();
+            //         // allPlaylistCount.Intro("COUNT");
+
+
+            // ViewBag.allPlaylists = allPlaylists;
+
+
+            // foreach(var itemP in allPlaylists)
+            // {
+            //     // SINGLEPLAYLIST ---> spookify.Models.Playlist
+            //     Playlist singlePlaylist = new Playlist ()
+            //     {
+            //         // PLAYLIST NAME ---> "Indie Jams" OR "Emo" etc.
+            //         PlaylistName = (string)itemP.PlaylistName,
+
+            //         // PLAYLIST DESCRIPTION ---> displays the actual description
+            //         PlaylistDescription = (string)itemP.PlaylistDescription,
+            //         PlaylistImage = (string)itemP.PlaylistImage,
+
+            //         // PLAYLIST ID ---> '1' OR '2' etc.
+            //         PlaylistId = (int)itemP.PlaylistId,
+
+            //         // PLAYLIST TRACKs ---> System.Collections.Generic.List`1[spookify.Models.PlaylistTrack]
+            //         PlaylistTracks = new List<PlaylistTrack>()
+            //     };
+
+            //     var TrackNames = new List<string>();
+            //     var TrackIds = new List<string>();
+
+            //     ViewBag.singlePlaylist = singlePlaylist;
+
+
+
+            //     // var playlistTracks = singlePlaylist.PlaylistTracks;
+            //         // int playlistTracksCount = playlistTracks.Count();
+            //         // playlistTracksCount.Intro("playlist track count");
+
+            //     // var abc = allPlaylists.PlaylistTrack;
+
+            //     foreach(var itemT in singlePlaylist.PlaylistTracks)
+            //     {
+            //         PlaylistTrack singleTrack = new PlaylistTrack ()
+            //         {
+            //             TrackId = (int)itemT.TrackId,
+            //         };
+
+            //         // SINGLE TRACK ---> spookify.Models.Track
+            //             // singleTrack.Intro("single track");
+
+
+            //         // TRACK ID ---> 2
+            //         var trackId = singleTrack.TrackId;
+
+            //         singlePlaylist.PlaylistTracks.Add(singleTrack);
+
+
+
+            //     singlePlaylist.Intro("single playlist");
+
+            //     }
+
+            //     ViewBag.onePlaylist = singlePlaylist;
+
+
+            // }

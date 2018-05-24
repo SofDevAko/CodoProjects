@@ -11,12 +11,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
     <title>Spookify Webplayer</title>
   </head>
   <body>
     <div id="wrapper">
-        
+
       <div id="webplayernav" class="nav-fill navbar-transparent" role="tablist" aria-orientation="vertical">
         <ul class="nav nav-pills">
           <a href="webplayer"><img src="~/img/spookify.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="90"></a>
@@ -33,13 +33,13 @@
           <hr>
           <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
           <div id="recently">
-          
+
           </div>
         </ul>
-        
+
       </div>
       <a id="user" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        
+
           <i class="material-icons">account_circle</i>
           <h3>@ViewBag.User.Username</h3>
           </a>
@@ -47,8 +47,8 @@
             <a class="dropdown-item" href="#">Account</a>
             <a class="dropdown-item" href="/logout">Logout</a>
           </div>
-      
-        
+
+
         <div id="v-pills-playercontent" class="tab-content">
           <!-- Home Page -->
           <div class="tab-pane active container" id="webhome">
@@ -78,7 +78,8 @@
             </div>
           <!-- Your Music Page -->
         <div class="tab-pane container" id="yourmusic">
-        
+
+
 </div>
         <div class="navbar-fixed-bottom webplayer">
             <audio id="audio" preload="auto"></audio>
@@ -94,8 +95,8 @@
         </div>
 
     </div>
-    
-    
+
+
   </body>
   <script>
     $('#searchbtn').click(function(e){
@@ -110,5 +111,5 @@
         })
     });
 </script>
-  
+
 </html>
