@@ -188,9 +188,14 @@ a#user span{
 }
 
 .no:hover {
+<<<<<<< HEAD
 	    background: none;
 }
 .no:active {
+=======
+	        background: none;
+	      } .no       : active {
+>>>>>>> Dan3
 	background: none;
 }
 #seconds {
@@ -201,6 +206,7 @@ a#user span{
   visibility: hidden;
 }
 .btn-custom {
+<<<<<<< HEAD
   background-color:  #94a2af;
   border: black 1px solid;
   color:white;
@@ -218,6 +224,19 @@ a#user span{
   background-color: #717a83;
   box-shadow: 0 3px #666;
   transform: translateY(4px);
+=======
+	        background-color   : black;
+	        color              : white;
+	        height             : 40px;
+	        width              : 50px;
+	        transition-property: background, opacity;
+	        transition-duration: 0.5s;
+	      } .btn-custom        : hover,      .btn-custom: active, .btn-custom: focus {
+	cursor : pointer;
+	opacity: 0.5;
+	color  : rgb(184, 184, 184);
+
+>>>>>>> Dan3
 }
 .btn-group{
   height: 5%;
@@ -230,8 +249,9 @@ a#user span{
 }
 
 .albumtable {
-  width           : 80%;
+  width           : auto;
   border-top-style: 1px solid grey;
+  text-align      : center;
 }
 #ajax_search{
   color: whitesmoke;

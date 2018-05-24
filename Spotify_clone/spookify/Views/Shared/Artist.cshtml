@@ -1,42 +1,78 @@
-<div id="playercontent" class="text_center">
-
-    <div id="artistsearchtop" class="aligned_left">
-        <h2>@ViewBag.Artist.ArtistName</h2>
-        <p>MBID: @ViewBag.Artist.ArtistMBID</p>
-        <p>URL: @ViewBag.Artist.ArtistURL</p>
-        <p>Image: @ViewBag.Artist.ArtistImage</p>
-        <p>Listeners: @ViewBag.Artist.ArtistListeners</p>
-        <p>Playcount: @ViewBag.Artist.ArtistPlaycount</p>
-        <p>Tags: @ViewBag.ArtistTags</p>
-        <p>Artist Biography Summary: @ViewBag.Artist.ArtistBio</p>
-    </div>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/style.css">
+        <title>Artist Page</title>
+    </head>
 
 
-    <div id="allartistalbums" class="aligned_left">
-        <h4>Albums</h4>
-        <hr style="border: 1px solid grey">
+
+    <body>
+
+        <div class="text_center">
+
+            <div id="artistsearchtop" class="aligned_left">
+                <h2>@ViewBag.Artist.ArtistName</h2>
+                <!-- <p>MBID: @ViewBag.Artist.ArtistMBID</p> -->
+                <!-- <p>URL: @ViewBag.Artist.ArtistURL</p> -->
+                <p><img src="@ViewBag.Artist.ArtistImage" alt="Artist Image"/></p>
+                <table>
+                    <tr>
+                        <td>Listeners</td>
+                        <td>@ViewBag.Artist.ArtistListeners</td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 100px">Playcount</td>
+                        <td>@ViewBag.Artist.ArtistPlaycount</td>
+
+                    </tr>
+                    <tr>
+                        <td>Tags</td>
+                        <td>@ViewBag.ArtistTags</td>
+
+                    </tr>
+                </table>
+
+                <br>
+                <p>Biography</p>
+                <p>@ViewBag.Artist.ArtistBio</p>
+            </div>
+
+            <br>
+            <div id="allartistalbums" class="aligned_left">
+                <h4>Albums</h4>
+                <hr style="border: 1px solid grey">
 
 
-        <p>@ViewBag.AlbumPlaycounts</p>
-        <table class="albumtable">
-                <tr>
-                    <th>Album Cover</th>
-                    <th>TITLE</th>
-                    <th>Playcount</th>
-                </tr>
-    @{
-    @foreach(var album in ViewBag.Artist.Albums)
-    {
-        <tr>
-            <td><img src="@album.AlbumImage"></td>
-            <td>@album.AlbumName</td>
-            <td>@album.AlbumPlaycount</td>
-        </tr>
-    }
-    }
-        </table>
-        <br>
-        <hr class="hrsmallbreak">
-        <br>
+                <p>@ViewBag.AlbumPlaycounts</p>
+                <table class="albumtable">
+                        <tr>
+                            <th>Album</th>
+                            <th>Title</th>
+                            <th>Playcount</th>
+                        </tr>
+
+                        @foreach(var album in ViewBag.Artist.Albums)
+                        {
+                            <tr style="height: 40px">
+                                <td><img src="@album.AlbumImage"></td>
+                                <td>@album.AlbumName</td>
+                                <td>@album.AlbumPlaycount</td>
+                            </tr>
+
+                        }
+
+                </table>
+                <br>
+                <hr class="hrsmallbreak">
+                <br>
+            </div>
         </div>
-</div>
+
+    </body>
+</html>
