@@ -1,0 +1,64 @@
+@model spookify.Models.Playlist
+
+
+@{
+    ViewData["Title"] = "Playlist";
+}
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/style.css">
+        <title>Playlist</title>
+
+    </head>
+
+
+
+    <body>
+
+        <table class="table">
+            <tr>
+                <th>Playlist Name</th>
+                <th>Playlist Description</th>
+                <th>Playlist Image</th>
+                <th>Playlist Tracks</th>
+
+            </tr>
+
+
+            <tr>
+                <td>@ViewBag.onePlaylist.PlaylistName</td>
+                <td>@ViewBag.onePlaylist.PlaylistDescription</td>
+                <td>@ViewBag.onePlaylist.PlaylistImage</td>
+
+                <td>
+
+                <table>
+                    <tr>
+                        <th>Artist</th>
+                        <th>Track</th>
+                    </tr>
+                    @foreach(var track in ViewBag.onePlaylist.PlaylistTracks)
+                    {
+                        <tr>
+                            <td>@track.Track.ArtistName</td>
+                            <td>@track.Track.TrackName</td>
+                        </tr>
+                    }
+                </table>
+
+            </tr>
+        </table>
+
+
+
+
+    </body>
+
+</html>

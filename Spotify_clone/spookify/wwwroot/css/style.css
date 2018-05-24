@@ -230,8 +230,9 @@ a#user span{
 }
 
 .albumtable {
-  width           : 80%;
+  width           : auto;
   border-top-style: 1px solid grey;
+  text-align      : center;
 }
 #ajax_search{
   color: whitesmoke;

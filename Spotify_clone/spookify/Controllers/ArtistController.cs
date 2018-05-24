@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
-// using System.Linq;
+using System.Linq;
 // using System.Threading.Tasks;
 // using System.Net;
 // using System.Net.Http;
 // using System.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 // using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 // using Newtonsoft.Json;
+using Extensions;
 using RestSharp;
 using spookify.Models;
 
@@ -30,6 +32,9 @@ namespace spookify.Controllers
         [Route("workingindex")]
         public IActionResult WorkingIndex()
         {
+
+
+
             return View();
         }
 
@@ -66,7 +71,7 @@ namespace spookify.Controllers
                 ArtistName = (string)BandNameObject["artist"]["name"],
                 ArtistMBID = (string)BandNameObject["artist"]["mbid"],
                 ArtistURL = (string)BandNameObject["artist"]["url"],
-                ArtistImage = (string)BandNameObject["artist"]["image"][1]["#text"],
+                ArtistImage = (string)BandNameObject["artist"]["image"][3]["#text"],
                 ArtistBio = (string)BandNameObject["artist"]["bio"]["summary"],
                 ArtistListeners = (int)BandNameObject["artist"]["stats"]["listeners"],
                 ArtistPlaycount = (int)BandNameObject["artist"]["stats"]["playcount"],
@@ -98,7 +103,7 @@ namespace spookify.Controllers
                     {
                         AlbumName =  (string)AlbumObject["topalbums"]["album"][countA]["name"],
                         AlbumPlaycount =(string)AlbumObject["topalbums"]["album"][countA]["playcount"],
-                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][2]["#text"],
+                        AlbumImage = (string)AlbumObject["topalbums"]["album"][countA]["image"][1]["#text"],
                         AlbumURL = (string)AlbumObject["topalbums"]["album"][countA]["url"],
                     };
                     newartist.Albums.Add(newalbum);
