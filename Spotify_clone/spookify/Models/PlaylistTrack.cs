@@ -11,6 +11,8 @@ namespace spookify.Models
 
         public Track Track { get; set; }
 
+        public string TrackMBID { get; set; }
+
         public int PlaylistId { get; set; }
 
         public Playlist Playlist { get; set; }

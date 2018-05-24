@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using spookify.Models; 
-using RestSharp; 
+using spookify.Models;
+using RestSharp;
 // my using statements
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -50,7 +50,7 @@ namespace spookify.Controllers
         public IActionResult Webplayer()
         {
             int? firstid = HttpContext.Session.GetInt32("ActiveId");
-            
+
             if(firstid != null)
             {
                 var client = new RestClient("https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=278be908abb6863ead7c33ceb7899607&format=json");
@@ -90,6 +90,10 @@ namespace spookify.Controllers
 
             }
 
+            var onePlaylist = _context.Playlists.Include(d => d.PlaylistTracks).ThenInclude(t => t.Track).SingleOrDefault(w => w.PlaylistId == 1);
+
+            ViewBag.onePlaylist = onePlaylist;
+
 
                 int id = (int)firstid;
                 User curuser = _context.Users.SingleOrDefault(u=>u.UserId == id);
@@ -100,9 +104,9 @@ namespace spookify.Controllers
             {
                 return View("Index");
             }
-            
+
         }
-        
+
     [HttpGet]
     [Route("worker")]
     public IActionResult WorkingIndex()
@@ -121,10 +125,10 @@ namespace spookify.Controllers
         ViewBag.firstArtistName = firstArtistName;              //sends Kendrick Lamar to the ViewBag
 
         string listeners = (string)parsedTopArtistData["artists"]["artist"][0]["listeners"];                //this gives you Kendrick Lamar's number of listeners
-        ViewBag.listeners = listeners;              //this sends Kendrick's # of listeners to the 
-        
+        ViewBag.listeners = listeners;              //this sends Kendrick's # of listeners to the
+
         // string image = (string)parsedTopArtistData["artists"]["artist"]["image"][0]["#text"];
-        // ViewBag.image = image; 
+        // ViewBag.image = image;
 
         string playcount = (string)parsedTopArtistData["artists"]["artist"][0]["playcount"];                //this gives you Kendrick Lamar's number of listeners
         ViewBag.playcount = playcount;
@@ -134,24 +138,24 @@ namespace spookify.Controllers
 
         string URL = (string)parsedTopArtistData["artists"]["artist"][0]["url"];
         ViewBag.URL = URL;
-        
-        var TopArtist = new List<string>(); 
+
+        var TopArtist = new List<string>();
         {
             int CountA = 0;
             foreach(var item in (string)parsedTopArtistData["artists"]["artist"][CountA]["name"])
             {
                 Artist topartist = new Artist
-                {   
+                {
                     ArtistName = firstArtistName,
                     ArtistURL = URL,
                     ArtistListeners2 = listeners,
                     ArtistPlaycount2 = playcount,
                  };
-                TopArtist.Add((topartist).ToString()); 
+                TopArtist.Add((topartist).ToString());
                 Console.WriteLine(TopArtist);
-                CountA++; 
+                CountA++;
             }
-            ViewBag.top = TopArtist; 
+            ViewBag.top = TopArtist;
         }
         return View("Webplayer");
     }

@@ -5,30 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<<<<<<< HEAD
-    
+
     <script src="https://unpkg.com/can@4/dist/global/can.all.js"></script>
     <script src="~/js/script.js"></script>
     <link rel="stylesheet" href="~/css/style.css">
-=======
-
->>>>>>> Dan3
     <title>Spookify Webplayer</title>
   </head>
   <body>
     <div id="wrapper">
 
-<<<<<<< HEAD
       <div id="webplayernav" class="nav-fill navbar-transparent white-pill" role="tablist" aria-orientation="vertical">
-=======
-      <div id="webplayernav" class="nav-fill navbar-transparent" role="tablist" aria-orientation="vertical">
->>>>>>> Dan3
         <ul class="nav nav-pills">
           <a href="/"><img src="~/img/spookify2.png" alt="spookify logo" class="nav-link navbar-brand d-inline-block align-top" width="180" height="120"></a>
           <li class="nav-item">
@@ -43,29 +35,18 @@
           </li>
           <hr>
           <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
-<<<<<<< HEAD
           <div>
             <ul id="recently">
 
             </ul>
-=======
-          <div id="recently">
-
->>>>>>> Dan3
           </div>
         </ul>
 
       </div>
       <a id="user" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
-        
+
           <img src="~/img/small.png" height="50px" width="30px">
           <span>@ViewBag.User.Username</span>
-=======
-
-          <i class="material-icons">account_circle</i>
-          <h3>@ViewBag.User.Username</h3>
->>>>>>> Dan3
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Account</a>
@@ -87,6 +68,10 @@
               <p># of Listeners: @Track.TrackListeners</p>
               <p>Playcount: @Track.TrackPlaycount</p>
               <p>URL:  <a href="@Track.TrackURL">Track Page</a></p>
+              <form action="AddPlaylistTrack" action="POST">
+
+                <button class="btn btn-primary">Add Track</button>
+              </form>
             </div>
             }
           </div>
@@ -110,21 +95,46 @@
             </div>
           </div>
           <!-- Your Music Page -->
-<<<<<<< HEAD
-        <div class="tab-pane container" id="yourmusic">YOUR MUSIC IS HERE!</div>
+        <div class="tab-pane container" id="yourmusic">
+           <table class="table">
+            <tr>
+                <th>Playlist Image</th>
+                <th>Playlist Name</th>
+                <th>Playlist Description</th>
+                <th>Playlist Tracks</th>
+
+            </tr>
+
+
+            <tr>
+                <td><img src="@ViewBag.onePlaylist.PlaylistImage" alt="playlist image" height="200px" width="250"/></td>
+                <td>@ViewBag.onePlaylist.PlaylistName</td>
+                <td>@ViewBag.onePlaylist.PlaylistDescription</td>
+
+                <td>
+
+                <table>
+                    <tr>
+                        <th>Artist</th>
+                        <th>Track</th>
+                    </tr>
+                    @foreach(var track in ViewBag.onePlaylist.PlaylistTracks)
+                    {
+                        <tr>
+                            <td>@track.Track.ArtistName</td>
+                            <td>@track.Track.TrackName</td>
+                        </tr>
+                    }
+                </table>
+
+            </tr>
+        </table>
+        </div>
         </div>
 
           <audio-player class="fixed-bottom webplayer"></audio-player>
+
             <!-- <div class="btn-group">
-=======
-        <div class="tab-pane container" id="yourmusic">
-
-
-</div>
-        <div class="navbar-fixed-bottom webplayer">
-            <audio id="audio" preload="auto"></audio>
-            <div class="btn-group">
->>>>>>> Dan3
                 <button onclick="Play('music.mp3','audio');" class="btn btn-custom"><span title="Play" id="play" class="glyphicon icon-play aligned"><i class="material-icons">play_circle_outline</i></span></button>
                 <button onclick="Stop('music.mp3','audio');" class="btn btn-custom"><span title="Stop" id="stop" class="glyphicon glyphicon-stop aligned"><i class="material-icons">stop</i></span></button>
                 <button onclick="Restart('music.mp3','audio');" class="btn btn-custom"><span title="Restart" id="restart" class="glyphicon glyphicon-step-backward aligned"><i class="material-icons">skip_previous</i></span></button>

@@ -39,7 +39,7 @@ namespace spookify.Controllers
 
         // public IActionResult CreatePlaylist (string PlaylistName, string PlaylistDescription, string PlaylistImage)
         // {
-        public IActionResult CreatePlaylist ()
+        public IActionResult CreatePlaylist (string playlistName, string playlistDescription, string playlistImage )
         {
             Console.WriteLine("------'CREATE PLAYLIST' METHOD STARTED-----");
 
@@ -48,12 +48,21 @@ namespace spookify.Controllers
             #region DUMMY DATA
                 var playlists = new Playlist[]
                 {
-                    new Playlist{PlaylistName="Indie Jams", PlaylistImage="Indie Jams IMAGE", PlaylistDescription="Indie Jams DESCRIPTION" },
+                    new Playlist
+                    {
+                        PlaylistName = playlistName,
+                        PlaylistImage = playlistDescription, PlaylistDescription=playlistImage
+                    },
 
-                    new Playlist{PlaylistName="Rap", PlaylistImage="Rap IMAGE", PlaylistDescription="Rap DESCRIPTION" },
-
-                    new Playlist{PlaylistName="Emo", PlaylistImage="Emo IMAGE", PlaylistDescription="Emo DESCRIPTION" },
                 };
+                // var playlists = new Playlist[]
+                // {
+                //     new Playlist{PlaylistName="Indie Jams", PlaylistImage="Indie Jams IMAGE", PlaylistDescription="Indie Jams DESCRIPTION" },
+
+                //     new Playlist{PlaylistName="Rap", PlaylistImage="Rap IMAGE", PlaylistDescription="Rap DESCRIPTION" },
+
+                //     new Playlist{PlaylistName="Emo", PlaylistImage="Emo IMAGE", PlaylistDescription="Emo DESCRIPTION" },
+                // };
 
                 foreach(Playlist p in playlists)
                 {
@@ -61,6 +70,7 @@ namespace spookify.Controllers
                 }
 
                 _context.SaveChanges();
+
 
 
                 var tracks = new Track[]
@@ -116,25 +126,27 @@ namespace spookify.Controllers
         {
             Console.WriteLine("------'CREATE NEW TRACK' METHOD STARTED-----");
 
+                var tracks = new Track[]
+                {
+                    new Track{TrackName="This Is America", ArtistName="Childish Gambino"},
 
-            Track newTrack = new Track ()
-            {
-                // PlaylistId = PlaylistId,
-                TrackId = 2,
-                TrackName = "Let Down",
-                ArtistName = "Radiohead",
-            };
+                    new Track{TrackName="Nice For What", ArtistName="Drake"},
+                    new Track{TrackName="God's Plan", ArtistName="Drake"},
+                    new Track{TrackName="Four Out of Five", ArtistName="Arctic Monkeys"},
+                    new Track{TrackName="Star Treatment", ArtistName="Arctic Monkeys"},
+                    new Track{TrackName="One Point Perspective", ArtistName="Arctic Monkeys"},
+                    new Track{TrackName="IDGAF", ArtistName="Dua Lipa"},
+                    new Track{TrackName="American Sports", ArtistName="Arctic Monkeys"},
+                    new Track{TrackName="Do I Wanna Know?", ArtistName="Arctic Monkeys"},
+                    new Track{TrackName="Redbone", ArtistName="Childish Gambino"},
+                };
 
+                foreach(Track t in tracks)
+                    {
+                    _context.Tracks.Add(t);
+                }
 
-            newTrack.Dig();
-
-            // playlistTrack.Intro("playlistTrack");
-            // playlistTrack.TrackName.Intro("track name");
-            // playlistTrack.ArtistName.Intro("artist name");
-
-
-            _context.Add(newTrack);
-            _context.SaveChanges();
+                _context.SaveChanges();
 
             Console.WriteLine("------'CREATE NEW TRACK' METHOD COMPLETED-----");
 
@@ -150,23 +162,41 @@ namespace spookify.Controllers
         public IActionResult AddPlaylistTrack (int TrackId, int PlaylistId)
 
         {
-
             var playlistTracks = new PlaylistTrack[]
             {
-                new PlaylistTrack{PlaylistId=1, TrackId=1},
-                new PlaylistTrack{PlaylistId=1, TrackId=2},
-                new PlaylistTrack{PlaylistId=2, TrackId=1},
-                new PlaylistTrack{PlaylistId=1, TrackId=3},
+                new PlaylistTrack{PlaylistId=1, TrackId=13},
+                new PlaylistTrack{PlaylistId=1, TrackId=14},
+                new PlaylistTrack{PlaylistId=1, TrackId=5},
+                new PlaylistTrack{PlaylistId=1, TrackId=6},
+                new PlaylistTrack{PlaylistId=1, TrackId=7},
+                new PlaylistTrack{PlaylistId=1, TrackId=8},
+                new PlaylistTrack{PlaylistId=1, TrackId=9},
+                new PlaylistTrack{PlaylistId=1, TrackId=10},
+                new PlaylistTrack{PlaylistId=1, TrackId=11},
+                new PlaylistTrack{PlaylistId=1, TrackId=12},
             };
+
+            // var playlistTracks = new PlaylistTrack[]
+            // {
+            //     new PlaylistTrack{PlaylistId=1, TrackId=1},
+            //     new PlaylistTrack{PlaylistId=1, TrackId=2},
+            //     new PlaylistTrack{PlaylistId=2, TrackId=1},
+            //     new PlaylistTrack{PlaylistId=1, TrackId=3},
+            // };
 
             foreach(PlaylistTrack pt in playlistTracks)
             {
                 _context.PlaylistTracks.Add(pt);
             }
-
+            // System.Console.WriteLine(playlistTrack);
+            // _context.PlaylistTracks.Add(playlistTrack);
             _context.SaveChanges();
 
-            return View("WorkingIndex");
+            var onePlaylist = _context.Playlists.Include(d => d.PlaylistTracks).ThenInclude(t => t.Track).SingleOrDefault(w => w.PlaylistId == 1);
+
+            ViewBag.onePlaylist = onePlaylist;
+
+            return View("Webplayer");
 
         }
 
