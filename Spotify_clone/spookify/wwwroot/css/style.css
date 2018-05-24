@@ -3,6 +3,36 @@
     color      : lightslategray;
     font-weight: bold;
   }
+  #resultrow a{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  #resultrow  a:hover{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  #resultrow a:link{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  #recently a{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  #recently  a:hover{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  #recently a:link{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: whitesmoke;
+  }
   li a.nav-link  {
     padding: 10px;
     display: block;
@@ -24,7 +54,18 @@
   }
   .navbar-transparent{
       background-color: rgba(0, 0, 0, 0.746);
-      
+  }
+  #trackname{
+    z-index: 10;
+    color: whitesmoke;
+    position: fixed;
+    top: 95%;
+    left: 7%;
+    display: inline;
+  }
+  .recent_track{
+    color: whitesmoke;
+    
   }
   .divider{
       color: whitesmoke;
@@ -83,7 +124,7 @@
   #wrapper{
     background-color: rgb(59, 63, 63);
     height          : 1000px;
-    width           : 1500px;
+    width           : auto;
     z-index         : -1;
   }
   #webplayernav{
@@ -113,7 +154,7 @@
   #v-pills-playercontent{
   position: absolute;
   top: 15%;
-  left: 15%;
+  left: 12%;
   display: inline-block;
   background-color: rgb(59, 63, 63);
   height          : 700px;
@@ -277,5 +318,5 @@ a#user span{
   display: inline-block;
   height: 10%;
   width: 30%;
-  
+  align-content: top;
 }

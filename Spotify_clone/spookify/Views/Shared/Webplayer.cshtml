@@ -35,8 +35,10 @@
           </li>
           <hr>
           <p class="recently">Recently Played <i class="material-icons">queue_music</i></p>
-          <div id="recently">
-          
+          <div>
+            <ul id="recently">
+
+            </ul>
           </div>
         </ul>
         
@@ -55,11 +57,11 @@
         <div id="v-pills-playercontent" class="tab-content">
           <!-- Home Page -->
           <div class="tab-pane active container" id="webhome">
-              <h2 class="sticky-top col-11" style="background-color:black">Top Tracks</h2>
+              <h2 class="text-center sticky-top col-11" style="background-color:black">Top Tracks</h2>
 
             @foreach(var Track in @ViewBag.GlobalTracks)
             {
-            <div class="toptrack">
+            <div class="toptrack col-4">
               <img src="@Track.TrackImage" alt="track_image">
               <h4>@Track.TrackName</h4>
               by: <h5>@Track.ArtistName</h5>
@@ -72,22 +74,25 @@
           <!-- Search Page -->
           <div class="tab-pane container" id="search">
             <h1>Search</h1>
-              <form action="SingleAlbumInfo" method="POST" class="ajax_form col-6 form-inline my-2 my-lg-0">
-
-                    <input id="ajax_search" class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search Here!" aria-label="Search" name="search"
-                        value="" autocomplete="off">
-                        <button id="searchbtn" class="btn btn-light search" type="submit">
-                          <i class="material-icons">search</i>
-                        </button>
-              </form>
-              <div id="searchres">
-
+            <input id="ajax_search" class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search Here!" aria-label="Search" name="search" value="" autocomplete="off">
+            <div class="row" id="resultrow">
+              <div class="col-4">
+                <div id="searchres">
+                </div>
+              </div>
+              <div class="col-4">
+                <div id="searchres2">
+                </div>
+              </div>
+              <div class="col-4">
+                <div id="searchres3">
+                </div>
               </div>
             </div>
+          </div>
           <!-- Your Music Page -->
         <div class="tab-pane container" id="yourmusic">YOUR MUSIC IS HERE!</div>
         </div>
-
 
           <audio-player class="fixed-bottom webplayer"></audio-player>
             <!-- <div class="btn-group">
@@ -99,22 +104,89 @@
                 <button onclick="VolumeUp('music.mp3','audio');" class="btn btn-custom"><span title="Volume Up" id="volumeup" class="glyphicon glyphicon-plus aligned"><i class="material-icons">volume_up</i></span></button>
                 <button onclick="VolumeDown('music.mp3','audio');" class="btn btn-custom"><span title="Volume Down" id="volumedown" class="glyphicon glyphicon-minus aligned"><i class="material-icons">volume_down</i></span></button>
             </div> -->
-
+      <h4 id="trackname"></h4>
     </div>
     
     
   </body>
   <script>
-    $('#searchbtn').click(function(e){
-       e.preventDefault()
-       $.ajax({
-            url: 'SingleAlbumInfo',
-            method: 'GET',
-            data: $('#ajax_search').val(),
-            success: function (serverResponse) {
-                $('#searchres').html(serverResponse)
+    $(document).on('click','a.track',function(event){
+      event.preventDefault()
+      $('#trackname').html('')
+      var name = $(this)[0].children[1].innerHTML
+      var artist = $(this)[0].children[2].innerHTML
+      $('#trackname').html(name)
+      $('#recently').prepend("<li class='recent_track'><a href='' class='track'><span></span><span>"+name+"</span><span>"+ artist+"</span></a></li>")
+    })
+    $('#ajax_search').keyup(function(e){
+      var SearchQuery = $('#ajax_search').val();
+      $('#searchres').html("")
+      $('#searchres2').html("")
+      $('#searchres3').html("")
+      $.ajax({
+        // AJAX for Artist search
+        url: "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + SearchQuery + "&api_key=278be908abb6863ead7c33ceb7899607&format=json",
+        method: 'GET',
+        success: function (serverResponse) {
+          var realres = serverResponse["results"]["artistmatches"]["artist"]
+          if(realres.length>0){
+              $('#searchres').append("<h2>Artist Results</h2>")
+              if(realres.length>5){
+              for(i=0; i<5; i++){
+              $('#searchres').append("<a href=''><img src="+realres[i]["image"][1]["#text"]+"><b>"+realres[i]["name"]+"</b></a><br>")
+              }
             }
-        })
+            else{
+              for(i=0; i<realres.length; i++){
+              $('#searchres').append("<a href=''><img src="+realres[i]["image"][1]["#text"]+"><b>"+realres[i]["name"]+"</b></a><br>")
+              }
+            }
+          }
+        }
+      }),
+      $.ajax({
+        // AJAX for Track search
+        url: "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" + SearchQuery + "&api_key=278be908abb6863ead7c33ceb7899607&format=json",
+        method: 'GET',
+        success: function (serverResponse2) {
+          var realres2 = serverResponse2["results"]["trackmatches"]["track"]
+          if(realres2.length>0){
+              $('#searchres2').append("<h2>Track Results</h2>")
+              if(realres2.length>5){
+              for(i=0; i<5; i++){
+              $('#searchres2').append("<a href='' class='track'><img src="+realres2[i]["image"][1]["#text"]+"><b>"+realres2[i]["name"]+"</b><cite> -by "+realres2[i]["artist"]+"</cite></a><br>")
+              }
+            }
+            else{
+              for(i=0; i<realres2.length; i++){
+              $('#searchres2').append("<a href='' class='track'><img src="+realres2[i]["image"][1]["#text"]+"><b>"+realres2[i]["name"]+"</b><cite> -by "+realres2[i]["artist"]+"</cite></a><br>")
+              }
+            }
+          }
+        }
+      }),
+      $.ajax({
+        // AJAX for Album search
+        url: "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + SearchQuery + "&api_key=278be908abb6863ead7c33ceb7899607&format=json",
+        method: 'GET',
+        success: function (serverResponse3) {
+          var realres3 = serverResponse3["results"]["albummatches"]["album"]
+          if(realres3.length>0){
+              $('#searchres3').append("<h2>Album Results</h2>")
+              if(realres3.length>5){
+              for(i=0; i<5; i++){
+              $('#searchres3').append("<a href=''><img src="+realres3[i]["image"][1]["#text"]+"><b>"+realres3[i]["name"]+"</b> <cite>-by "+realres3[i]["artist"]+"</cite></a><br>")
+              }
+            }
+            else{
+              for(i=0; i<realres3.length; i++){
+              $('#searchres3').append("<a href=''><img src="+realres3[i]["image"][1]["#text"]+"><b>"+realres3[i]["name"]+"</b> <cite>-by "+realres3[i]["artist"]+"</cite></a><br>")
+              }
+            }
+          }
+        }
+      })
+
     });
 </script>
   
